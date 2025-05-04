@@ -1,0 +1,159 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1001;
+}
+
+.Modal {
+  background: white;
+  border-radius: 8px;
+  width: min(95%, 28rem);
+  height: 35rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out;
+  z-index: 1001;
+}
+
+.CloseButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+}
+
+.CloseIcon {
+  width: 24px;
+  height: 24px;
+  color: #666;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+}
+
+.Title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.ScrollContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.SelectContainer {
+  width: 100%;
+}
+
+.Select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.CheckboxGroup {
+  margin-top: 8px;
+}
+
+.CheckboxTitle {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.CheckboxOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.CheckboxLabel {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.CheckboxInput {
+  margin: 0;
+}
+
+.ButtonWrapper {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.SubmitButton {
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Custom scrollbar */
+.ScrollContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ScrollContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.ScrollContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.ScrollContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,23 @@
+.button {
+    border: none;
+    border-radius: 50px; /* Consistent rounded corners */
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: var(--font-weight-m);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    white-space: nowrap;
+    /* Size adjusts automatically to text content */
+  }
+  
+  .hoverEffect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+  }
+  
+  .hoverEffect:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }

@@ -1,0 +1,78 @@
+/* CSS Variables */
+:root {
+  /* Font Families */
+  --font-sour-gummy: "Sour Gummy", cursive;
+  --font-verdana: Verdana, Geneva, Tahoma, sans-serif;
+
+  /* Font Weights */
+  --font-weight-xs: 200;
+  --font-weight-m: 400;
+  --font-weight-xl: 200;
+
+  /* Color palette */
+  --light-grey: #e3e3e3;
+  --rich-black: #001011;
+  --midnight-green: #093a3e;
+  --verdigris: #3aafb9;
+  --electric-blue: #64e9ee;
+  --light-sky-blue: #97c8eb;
+  --bone-white: #f9f6ee;
+  --alabaster: #edeade;
+  --off-white: #faf9f6;
+  --pearl: #e2dfd2;
+  --coke-red: #f40009;
+  --lime-green: #00ff00;
+  --charcoal: #36454f;
+  --gold: #ffd700;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Typography */
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+}
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-verdana);
+  color: var(--color-text);
+  background-color: var(--light-grey);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  color: var(--off-white);
+}

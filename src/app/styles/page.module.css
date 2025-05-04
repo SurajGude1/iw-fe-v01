@@ -1,0 +1,38 @@
+.MainWrapper {
+  max-width: 100%;
+  width: 95%;
+  height: calc(100vh - 0.625rem);
+  margin: 0.625rem auto 0;
+  padding: 4.0625rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0;
+  background-color: #0c111b;
+  position: relative; /* Needed for absolute children */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.MainWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.FullWidthComponents {
+  margin: 0 -2rem;
+  width: calc(100% + 4rem);
+}
+
+@media (max-width: 480px) {
+  .MainWrapper {
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .MainWrapper {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
