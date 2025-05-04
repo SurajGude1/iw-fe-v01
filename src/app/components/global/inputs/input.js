@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Input.module.css';
+import styles from './input.module.css';
 
 const Input = ({
   type = "text",

@@ -3,36 +3,30 @@ import { useState, useEffect } from "react";
 import Input from "../inputs/input";
 import Button from "../buttons/button";
 import styles from "./sign-in.module.css";
-import {
-  TextField,
-  Button as MuiButton,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Checkbox,
-  FormControlLabel,
-  FormGroup,
-} from "@mui/material";
+import { TextField, Button as MuiButton, Divider } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 export default function SignIn({ onClose }) {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Handle mounting state for SSR compatibility
   useEffect(() => {
     setIsMounted(true);
     return () => setIsMounted(false);
   }, []);
 
-  // Prevent hydration mismatch
-  if (!isMounted) return null;
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log(isSignIn ? "Signing in..." : "Creating account...");
   };
+
+  const handleSocialLogin = (provider) => {
+    console.log(`Signing in with ${provider}`);
+    // Add your OAuth logic here
+  };
+
+  if (!isMounted) return null;
 
   return (
     <div className={styles.Overlay} onClick={onClose}>
@@ -65,6 +59,44 @@ export default function SignIn({ onClose }) {
             {isSignIn ? "Welcome Back" : "Create Account"}
           </h1>
 
+          {/* Social Login Buttons */}
+          {isSignIn && (
+            <div className={styles.SocialLoginContainer}>
+              <MuiButton
+                fullWidth
+                variant="outlined"
+                startIcon={<FontAwesomeIcon icon={faGoogle} />}
+                onClick={() => handleSocialLogin("google")}
+                sx={{
+                  mb: 2,
+                  height: 48,
+                  color: "#000000",
+                  textTransform: "none",
+                  fontSize: "1rem",
+                }}
+              >
+                Continue with Google
+              </MuiButton>
+
+              <MuiButton
+                fullWidth
+                variant="outlined"
+                startIcon={<FontAwesomeIcon icon={faGithub} />}
+                onClick={() => handleSocialLogin("github")}
+                sx={{
+                  height: 48,
+                  color: "#000000",
+                  textTransform: "none",
+                  fontSize: "1rem",
+                }}
+              >
+                Continue with GitHub
+              </MuiButton>
+
+              <Divider sx={{ my: 3 }}>OR</Divider>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className={styles.Form}>
             {isSignIn ? (
               <>
@@ -76,9 +108,7 @@ export default function SignIn({ onClose }) {
                   fullWidth
                   margin="normal"
                   sx={{
-                    "& .MuiInputBase-root": {
-                      height: 48, // Slightly taller than default
-                    },
+                    "& .MuiInputBase-root": { height: 48 },
                   }}
                 />
 
@@ -91,53 +121,34 @@ export default function SignIn({ onClose }) {
                   fullWidth
                   margin="normal"
                   sx={{
-                    "& .MuiInputBase-root": {
-                      height: 48, // Matching height
-                    },
+                    "& .MuiInputBase-root": { height: 48 },
                   }}
                 />
               </>
             ) : (
               <>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="John Doe"
-                  className={styles.InputField}
-                  label="Full Name"
+                <TextField
+                  id="fullName"
+                  label="Full name"
+                  variant="outlined"
                   required
-                  autoComplete="name"
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    "& .MuiInputBase-root": { height: 48 },
+                  }}
                 />
-                <Input
-                  type="email"
-                  id="new-email"
-                  name="email"
-                  placeholder="your@email.com"
-                  className={styles.InputField}
-                  label="Email Address"
+
+                <TextField
+                  id="email"
+                  label="Email"
+                  variant="outlined"
                   required
-                  autoComplete="email"
-                />
-                <Input
-                  type="password"
-                  id="new-password"
-                  name="password"
-                  placeholder="••••••••"
-                  className={styles.InputField}
-                  label="Password"
-                  required
-                  autoComplete="new-password"
-                />
-                <Input
-                  type="password"
-                  id="confirm-password"
-                  name="confirmPassword"
-                  placeholder="••••••••"
-                  className={styles.InputField}
-                  label="Confirm Password"
-                  required
-                  autoComplete="new-password"
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    "& .MuiInputBase-root": { height: 48 },
+                  }}
                 />
               </>
             )}
@@ -164,7 +175,6 @@ export default function SignIn({ onClose }) {
                 >
                   Create new account
                 </button>
-                <span className={styles.LinkDivider}>•</span>
                 <button type="button" className={styles.LinkButton}>
                   Forgot password?
                 </button>
