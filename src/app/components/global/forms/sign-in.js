@@ -10,6 +10,8 @@ import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 export default function SignIn({ onClose }) {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1); // 1: Email, 2: OTP, 3: New Password
 
   useEffect(() => {
     setIsMounted(true);
@@ -18,12 +20,31 @@ export default function SignIn({ onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(isSignIn ? "Signing in..." : "Creating account...");
+    if (showForgotPassword) {
+      if (currentStep === 1) {
+        console.log("Sending OTP to email...");
+        setCurrentStep(2);
+      } else if (currentStep === 2) {
+        console.log("Verifying OTP...");
+        setCurrentStep(3);
+      } else {
+        console.log("Updating password...");
+        setShowForgotPassword(false);
+        setCurrentStep(1);
+      }
+    } else {
+      console.log(isSignIn ? "Signing in..." : "Creating account...");
+    }
   };
 
   const handleSocialLogin = (provider) => {
     console.log(`Signing in with ${provider}`);
     // Add your OAuth logic here
+  };
+
+  const handleBackToSignIn = () => {
+    setShowForgotPassword(false);
+    setCurrentStep(1);
   };
 
   if (!isMounted) return null;
@@ -56,11 +77,15 @@ export default function SignIn({ onClose }) {
         {/* Form Container */}
         <div className={styles.FormContainer}>
           <h1 className={styles.FormTitle}>
-            {isSignIn ? "Welcome Back" : "Create Account"}
+            {showForgotPassword
+              ? "Reset Password"
+              : isSignIn
+              ? "Welcome Back"
+              : "Create Account"}
           </h1>
 
-          {/* Social Login Buttons */}
-          {isSignIn && (
+          {/* Social Login Buttons - Only shown on sign in and not in forgot password */}
+          {isSignIn && !showForgotPassword && (
             <div className={styles.SocialLoginContainer}>
               <MuiButton
                 fullWidth
@@ -98,7 +123,83 @@ export default function SignIn({ onClose }) {
           )}
 
           <form onSubmit={handleSubmit} className={styles.Form}>
-            {isSignIn ? (
+            {showForgotPassword ? (
+              <>
+                {currentStep === 1 && (
+                  <TextField
+                    id="forgot-email"
+                    label="Email"
+                    variant="outlined"
+                    type="email"
+                    required
+                    fullWidth
+                    margin="normal"
+                    sx={{
+                      "& .MuiInputBase-root": { height: 48 },
+                    }}
+                  />
+                )}
+
+                {currentStep === 2 && (
+                  <TextField
+                    id="otp"
+                    label="OTP"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    margin="normal"
+                    sx={{
+                      "& .MuiInputBase-root": { height: 48 },
+                    }}
+                  />
+                )}
+
+                {currentStep === 3 && (
+                  <>
+                    <TextField
+                      id="new-password"
+                      label="New Password"
+                      variant="outlined"
+                      type="password"
+                      required
+                      fullWidth
+                      margin="normal"
+                      sx={{
+                        "& .MuiInputBase-root": { height: 48 },
+                      }}
+                    />
+                    <TextField
+                      id="confirm-password"
+                      label="Confirm New Password"
+                      variant="outlined"
+                      type="password"
+                      required
+                      fullWidth
+                      margin="normal"
+                      sx={{
+                        "& .MuiInputBase-root": { height: 48 },
+                      }}
+                    />
+                  </>
+                )}
+
+                <div className={styles.ButtonContainer}>
+                  <Button
+                    type="submit"
+                    text={
+                      currentStep === 1
+                        ? "Send OTP"
+                        : currentStep === 2
+                        ? "Verify OTP"
+                        : "Reset Password"
+                    }
+                    backgroundColor="#333333"
+                    textColor="#ffffff"
+                    className={styles.SubmitButton}
+                  />
+                </div>
+              </>
+            ) : isSignIn ? (
               <>
                 <TextField
                   id="username"
@@ -153,20 +254,30 @@ export default function SignIn({ onClose }) {
               </>
             )}
 
-            <div className={styles.ButtonContainer}>
-              <Button
-                type="submit"
-                text={isSignIn ? "Sign In" : "Create Account"}
-                backgroundColor="#333333"
-                textColor="#ffffff"
-                className={styles.SubmitButton}
-              />
-            </div>
+            {!showForgotPassword && (
+              <div className={styles.ButtonContainer}>
+                <Button
+                  type="submit"
+                  text={isSignIn ? "Sign In" : "Create Account"}
+                  backgroundColor="#333333"
+                  textColor="#ffffff"
+                  className={styles.SubmitButton}
+                />
+              </div>
+            )}
           </form>
 
           {/* Form Footer Links */}
           <div className={styles.LinkContainer}>
-            {isSignIn ? (
+            {showForgotPassword ? (
+              <button
+                type="button"
+                className={styles.LinkButton}
+                onClick={handleBackToSignIn}
+              >
+                Back to Sign In
+              </button>
+            ) : isSignIn ? (
               <>
                 <button
                   type="button"
@@ -175,7 +286,11 @@ export default function SignIn({ onClose }) {
                 >
                   Create new account
                 </button>
-                <button type="button" className={styles.LinkButton}>
+                <button
+                  type="button"
+                  className={styles.LinkButton}
+                  onClick={() => setShowForgotPassword(true)}
+                >
                   Forgot password?
                 </button>
               </>

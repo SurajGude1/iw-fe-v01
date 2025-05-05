@@ -38,18 +38,21 @@ function TopNavigationBar() {
             text="Contact"
             backgroundColor="#36454F"
             textColor="#ffffff"
+            hoverEffect = {false}
             onClick={() => setShowContactForm(true)}
           />
           <Button
             text="Earn"
             backgroundColor="#ffd700"
             textColor="#001011"
+            hoverEffect = {false}
             onClick={() => setShowEarnForm(true)}
           />
           <Button
             text="Sign-in"
             backgroundColor="#36454F"
             textColor="#ffffff"
+            hoverEffect = {false}
             onClick={() => setShowSignIn(true)}
           />
           <FontAwesomeIcon
