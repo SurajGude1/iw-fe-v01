@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Input from "../inputs/input";
+import { TextField, Button as MuiButton, MenuItem } from "@mui/material";
 import Button from "../buttons/button";
 import styles from "./contact.module.css";
 
@@ -47,52 +47,81 @@ export default function ContactForm({ onClose }) {
           <h2 className={styles.Title}>Contact Us</h2>
 
           <div className={styles.ScrollContainer}>
-            <Input
-              type="text"
+            <TextField
+              id="name"
               name="name"
+              label="Full Name"
+              variant="outlined"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Full Name"
               required
+              fullWidth
+              margin="normal"
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
             />
 
-            <Input
-              type="email"
+            <TextField
+              id="email"
               name="email"
+              label="Email Address"
+              variant="outlined"
+              type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email Address"
               required
+              fullWidth
+              margin="normal"
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
             />
 
-            <div className={styles.SelectContainer}>
-              <select
-                name="purpose"
-                value={formData.purpose}
-                onChange={handleChange}
-                className={styles.Select}
-                required
-              >
-                <option value="">Purpose of Contact</option>
-                {purposeOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <TextField
+              id="purpose"
+              name="purpose"
+              label="Purpose of Contact"
+              variant="outlined"
+              value={formData.purpose}
+              onChange={handleChange}
+              required
+              fullWidth
+              margin="normal"
+              select
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
+            >
+              <MenuItem value="">
+                <em>Select purpose</em>
+              </MenuItem>
+              {purposeOptions.map((opt) => (
+                <MenuItem key={opt} value={opt}>
+                  {opt}
+                </MenuItem>
+              ))}
+            </TextField>
 
-            <div className={styles.TextAreaContainer}>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                className={styles.TextArea}
-                required
-                rows={5}
-              />
-            </div>
+            <TextField
+              id="message"
+              name="message"
+              label="Your Message"
+              variant="outlined"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              fullWidth
+              margin="normal"
+              multiline
+              rows={5}
+              sx={{
+                "& .MuiInputBase-root": {
+                  height: "auto",
+                  minHeight: "120px",
+                },
+              }}
+            />
           </div>
 
           <div className={styles.ButtonWrapper}>

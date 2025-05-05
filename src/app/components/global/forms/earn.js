@@ -1,6 +1,12 @@
 "use client";
 import { useState } from "react";
-import Input from "../inputs/input";
+import {
+  TextField,
+  Button as MuiButton,
+  MenuItem,
+  Checkbox,
+  FormControlLabel,
+} from "@mui/material";
 import Button from "../buttons/button";
 import FileUpload from "../inputs/file-upload";
 import styles from "./earn.module.css";
@@ -67,78 +73,115 @@ export default function EarnForm({ onClose }) {
           <h2 className={styles.Title}>Join us</h2>
 
           <div className={styles.ScrollContainer}>
-            <Input
-              type="text"
+            <TextField
+              id="name"
               name="name"
+              label="Full Name"
+              variant="outlined"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Full Name"
               required
+              fullWidth
+              margin="normal"
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
             />
 
-            <Input
-              type="email"
+            <TextField
+              id="email"
               name="email"
+              label="Email Address"
+              variant="outlined"
+              type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email Address"
               required
+              fullWidth
+              margin="normal"
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
             />
 
-            <Input
-              type="date"
+            <TextField
+              id="dob"
               name="dob"
+              label="Date of Birth"
+              variant="outlined"
+              type="date"
               value={formData.dob}
               onChange={handleChange}
-              label="Date of Birth"
               required
+              fullWidth
+              margin="normal"
+              InputLabelProps={{ shrink: true }}
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
             />
 
-            <div className={styles.SelectContainer}>
-              <select
-                name="experience"
-                value={formData.experience}
-                onChange={handleChange}
-                className={styles.Select}
-                required
-              >
-                <option value="">Experience in Writing</option>
-                {experienceOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <TextField
+              id="experience"
+              name="experience"
+              label="Experience in Writing"
+              variant="outlined"
+              value={formData.experience}
+              onChange={handleChange}
+              required
+              fullWidth
+              margin="normal"
+              select
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
+            >
+              <MenuItem value="">
+                <em>Select experience</em>
+              </MenuItem>
+              {experienceOptions.map((opt) => (
+                <MenuItem key={opt} value={opt}>
+                  {opt}
+                </MenuItem>
+              ))}
+            </TextField>
 
             <FileUpload
               onFileSelect={setFile}
               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
             />
 
-            <Input
-              type="url"
+            <TextField
+              id="workLink"
               name="workLink"
+              label="Share Work Link (Optional)"
+              variant="outlined"
+              type="url"
               value={formData.workLink}
               onChange={handleChange}
-              placeholder="Share Work Link (Optional)"
+              fullWidth
+              margin="normal"
+              sx={{
+                "& .MuiInputBase-root": { height: 48 },
+              }}
             />
 
             <div className={styles.CheckboxGroup}>
               <p className={styles.CheckboxTitle}>Interested Fields</p>
               <div className={styles.CheckboxOptions}>
                 {interestOptions.map((opt) => (
-                  <label key={opt} className={styles.CheckboxLabel}>
-                    <input
-                      type="checkbox"
-                      name="interests"
-                      value={opt}
-                      checked={formData.interests.includes(opt)}
-                      onChange={handleChange}
-                      className={styles.CheckboxInput}
-                    />
-                    {opt}
-                  </label>
+                  <FormControlLabel
+                    key={opt}
+                    control={
+                      <Checkbox
+                        checked={formData.interests.includes(opt)}
+                        onChange={handleChange}
+                        value={opt}
+                        name="interests"
+                      />
+                    }
+                    label={opt}
+                  />
                 ))}
               </div>
             </div>
