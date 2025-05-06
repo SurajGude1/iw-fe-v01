@@ -16,12 +16,10 @@ export default function Home() {
       <Hero />
       <Posters />
       <FiltersCardsChannels />
-      <div className={styles.FullWidthComponents}>
-        <UserReviews />
-        <SiteMetadata />
-        <Collaborators />
-        <Footer />
-      </div>
+      <UserReviews />
+      <SiteMetadata />
+      <Collaborators />
+      <Footer />
     </div>
   );
 }

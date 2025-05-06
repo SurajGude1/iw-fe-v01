@@ -5,7 +5,7 @@ import Button from "../buttons/button";
 import styles from "./sign-in.module.css";
 import { TextField, Button as MuiButton, Divider } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 export default function SignIn({ onClose }) {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -101,21 +101,6 @@ export default function SignIn({ onClose }) {
                 }}
               >
                 Continue with Google
-              </MuiButton>
-
-              <MuiButton
-                fullWidth
-                variant="outlined"
-                startIcon={<FontAwesomeIcon icon={faGithub} />}
-                onClick={() => handleSocialLogin("github")}
-                sx={{
-                  height: 48,
-                  color: "#000000",
-                  textTransform: "none",
-                  fontSize: "1rem",
-                }}
-              >
-                Continue with GitHub
               </MuiButton>
 
               <Divider sx={{ my: 3 }}>OR</Divider>
