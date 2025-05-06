@@ -1,31 +1,55 @@
 /* hero.module.css */
 .Hero {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* Align items to top */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(280px, 320px) minmax(450px, 2fr) minmax(
+      220px,
+      260px
+    );
   gap: 2rem;
   padding: 4.8rem 1rem;
+  justify-content: center;
+  align-items: start;
   background-color: var(--background);
-  border: 1px solid magenta;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+/* MAIN CARD STYLES (UNCHANGED) */
 .Card {
-  --card-width: 280px;
-  width: var(--card-width);
-  min-width: var(--card-width); /* Prevent shrinking */
+  width: 100%;
+  max-width: 320px;
   border-radius: 12px;
-  overflow: hidden;
-  background: var(--charcoal);
+  background: var(--rich-black);
   color: var(--off-white);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0; /* Prevent card from shrinking */
+  box-shadow: 0 8px 24px var(--charcoal);
+  border: 1px solid var(--bone-white-faded);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  height: fit-content;
+}
+
+.AuthorSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.AuthorName {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--bone-white);
+}
+
+.DatePosted {
+  font-size: 0.95rem;
+  color: var(--bone-white-faded);
 }
 
 .ImageWrapper {
   aspect-ratio: 16/10;
   position: relative;
+  margin: 0 -1.5rem 1.25rem;
+  padding: 0 1.5rem;
 }
 
 .ImageWrapper img {
@@ -33,44 +57,39 @@
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.Content {
-  padding: 1.25rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.Meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  opacity: 0.8;
+  border-radius: 6px;
 }
 
 .Title {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+  font-weight: 500;
+  color: var(--off-white);
+}
+
+.Divider {
+  height: 1px;
+  background: var(--off-white);
+  opacity: 0.15;
+  margin: 0 0 1.25rem;
 }
 
 .Actions {
   display: flex;
   gap: 1rem;
   padding-top: 0.75rem;
-  margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .Actions button {
   background: transparent;
   border: none;
-  color: inherit;
+  color: var(--bone-white);
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  padding: 0.3rem 0.6rem;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -80,43 +99,73 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* SUMMARY CARD STYLES (WIDER) */
 .Summary {
-  flex: 1; /* Take remaining space */
-  min-width: 250px; /* Minimum width before wrapping */
-  padding: 1rem;
-  border: 1px solid red;
-  align-self: stretch; /* Match height with card */
+  width: 100%;
+  border-radius: 12px;
+  background: var(--rich-black);
+  border: 1px solid var(--bone-white-faded);
+  box-shadow: 0 4px 12px var(--charcoal); /* Reduced shadow */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: fit-content;
 }
 
+.SummaryTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--off-white);
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
+}
+
+.SummaryContent {
+  color: var(--bone-white);
+  line-height: 1.7;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.SummaryFooter {
+  margin-top: auto;
+}
+
+/* VIDEO ADS STYLES (NARROWER) */
 .VideoAds {
-  width: 280px;
-  min-width: 280px; /* Prevent shrinking */
-  padding: 1rem;
-  border: 1px solid red;
-  align-self: stretch; /* Match height with card */
+  width: 100%;
+  max-width: 260px; /* Reduced width */
+  border-radius: 8px;
+  background: var(--rich-black);
+  border: 1px solid var(--bone-white-faded);
+  padding: 1.5rem;
+  height: fit-content;
 }
 
-@media (max-width: 1024px) {
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
   .Hero {
-    gap: 1.5rem;
+    grid-template-columns: minmax(280px, 320px) minmax(450px, 1fr);
   }
 
   .VideoAds {
-    width: 240px;
-    min-width: 240px;
+    grid-column: span 2;
+    max-width: 100%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .Hero {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
     align-items: center;
-    padding-top: 1rem;
+    gap: 2rem;
   }
 
-  .Summary,
   .VideoAds {
-    width: 100%;
-    max-width: 400px;
+    grid-column: auto;
+    max-width: 100%;
   }
 }

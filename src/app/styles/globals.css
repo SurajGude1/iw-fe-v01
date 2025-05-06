@@ -76,3 +76,10 @@ body {
 h1{
   color: var(--off-white);
 }
+
+/* Disable blue highlight on button click */
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
