@@ -1,10 +1,7 @@
 /* hero.module.css */
 .Hero {
   display: grid;
-  grid-template-columns: minmax(280px, 320px) minmax(450px, 2fr) minmax(
-      220px,
-      260px
-    );
+  grid-template-columns: minmax(280px, 320px) minmax(450px, 2fr) minmax(220px, 260px);
   gap: 2rem;
   padding: 4.8rem 1rem;
   justify-content: center;
@@ -12,26 +9,26 @@
   background-color: var(--background);
 }
 
-/* MAIN CARD STYLES (UNCHANGED) */
+/* MAIN CARD STYLES */
 .Card {
   width: 100%;
-  max-width: 320px;
+  max-width: 100%;
   border-radius: 12px;
   background: var(--rich-black);
   color: var(--off-white);
-  box-shadow: 0 8px 24px var(--charcoal);
-  border: 1px solid var(--bone-white-faded);
+  box-shadow: 0 1px 6px var(--verdigris);
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1rem;
   height: fit-content;
+  overflow: hidden;
 }
 
 .AuthorSection {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .AuthorName {
@@ -48,8 +45,8 @@
 .ImageWrapper {
   aspect-ratio: 16/10;
   position: relative;
-  margin: 0 -1.5rem 1.25rem;
-  padding: 0 1.5rem;
+  margin: 0 -1rem 1.25rem;
+  padding: 0 1rem;
 }
 
 .ImageWrapper img {
@@ -57,7 +54,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .Title {
@@ -70,9 +67,8 @@
 
 .Divider {
   height: 1px;
-  background: var(--off-white);
-  opacity: 0.15;
-  margin: 0 0 1.25rem;
+  background: var(--charcoal);
+  margin: 0.75rem 0;
 }
 
 .Actions {
@@ -92,23 +88,21 @@
   padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .Actions button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* SUMMARY CARD STYLES (WIDER) */
+/* SUMMARY CARD STYLES */
 .Summary {
   width: 100%;
-  border-radius: 12px;
-  background: var(--rich-black);
-  border: 1px solid var(--bone-white-faded);
-  box-shadow: 0 4px 12px var(--charcoal); /* Reduced shadow */
+  border-radius: 8px;
+  box-shadow: 0 1px 6px var(--light-sky-blue);
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
   height: fit-content;
 }
 
@@ -132,40 +126,80 @@
   margin-top: auto;
 }
 
-/* VIDEO ADS STYLES (NARROWER) */
+/* VIDEO ADS STYLES */
 .VideoAds {
   width: 100%;
-  max-width: 260px; /* Reduced width */
+  max-width: 260px;
   border-radius: 8px;
   background: var(--rich-black);
   border: 1px solid var(--bone-white-faded);
   padding: 1.5rem;
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.VideoHeader {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--off-white);
+  margin-bottom: 0.5rem;
+}
+
+.VideoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.VideoContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: black;
+  height: 300px;
+}
+
+.VideoContainer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
   .Hero {
-    grid-template-columns: minmax(280px, 320px) minmax(450px, 1fr);
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .VideoAds {
-    grid-column: span 2;
     max-width: 100%;
+    width: 100%;
+  }
+
+  .VideoRow {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .VideoContainer {
+    width: calc(50% - 0.75rem);
+    height: 200px;
+    min-width: 240px;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .Hero {
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    gap: 2rem;
+    padding: 3rem 1rem;
+    gap: 1.5rem;
   }
 
-  .VideoAds {
-    grid-column: auto;
-    max-width: 100%;
+  .VideoContainer {
+    width: 100%;
+    max-width: 400px;
+    height: 180px;
   }
 }

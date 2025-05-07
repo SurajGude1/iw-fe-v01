@@ -7,7 +7,8 @@ export default function Hero() {
   const cardData = {
     author: "Nature Photographer",
     datePosted: "June 10, 2023",
-    imageUrl: "https://images.pexels.com/photos/1043558/pexels-photo-1043558.jpeg",
+    imageUrl:
+      "https://images.pexels.com/photos/1043558/pexels-photo-1043558.jpeg",
     title: "The silent stories hidden in abandoned places",
     likes: "12.8k",
     shares: "123",
@@ -23,7 +24,7 @@ export default function Hero() {
             {cardData.datePosted}
           </time>
         </div>
-        
+
         <div className={styles.ImageWrapper}>
           <img
             src={cardData.imageUrl}
@@ -33,11 +34,11 @@ export default function Hero() {
             height={200}
           />
         </div>
-        
+
         <h3 className={styles.Title}>{cardData.title}</h3>
-        
+
         <div className={styles.Divider} />
-        
+
         <div className={styles.Actions}>
           <button aria-label="Like">
             <FontAwesomeIcon icon={faHeart} />
@@ -77,11 +78,41 @@ export default function Hero() {
 
       {/* Video Ads (Right) */}
       <div className={styles.VideoAds}>
-        <h3 className={styles.SummaryTitle}>Featured Video</h3>
-        <div className={styles.SummaryContent}>
-          <p>Watch our latest tutorial to learn more about these features.</p>
+        <h3 className={styles.SummaryTitle}>Featured</h3>
+
+        {/* First Video Container */}
+        <div className={styles.VideoContainer}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Featured video 1"
+          >
+            <source
+              src="https://videos.pexels.com/video-files/5057524/5057524-uhd_1440_2560_25fps.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
-        {/* Video placeholder would go here */}
+
+        {/* Second Video Container */}
+        <div className={styles.VideoContainer}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Featured video 2"
+          >
+            <source
+              src="https://videos.pexels.com/video-files/5926065/5926065-uhd_1440_2560_24fps.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
       </div>
     </div>
   );
