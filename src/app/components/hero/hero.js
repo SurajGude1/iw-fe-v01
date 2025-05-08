@@ -73,7 +73,7 @@ export default function Hero() {
       {/* Summary Card (Center - Widest) */}
       <summary className={styles.Summary}>
         <div className={`${styles.SummaryInner} ${isFlipping ? styles.SummaryFlipping : ''}`}>
-          <h2 className={styles.SummaryTitle}>{currentCard.summaryTitle}</h2>
+          <h2 className={styles.SummaryTitle}>{currentCard.title}</h2>
           <div className={styles.SummaryContent}>
             <p>{currentCard.cardSummary}</p>
             <p>
@@ -128,3 +128,7 @@ export default function Hero() {
     </div>
   );
 }
+
+
+
+

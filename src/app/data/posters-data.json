@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg",
+    "altText": "Nature scene",
+    "title": "Nature View",
+    "buttonText": "View"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://images.pexels.com/photos/15286/pexels-photo.jpg",
+    "altText": "Forest",
+    "title": "Mystic Forest",
+    "buttonText": "Explore"
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
+    "altText": "Mountains",
+    "title": "Mountain Peaks",
+    "buttonText": "Discover"
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg",
+    "altText": "Ocean",
+    "title": "Ocean Waves",
+    "buttonText": "Dive In"
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
+    "altText": "Desert",
+    "title": "Sandy Desert",
+    "buttonText": "Explore"
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg",
+    "altText": "Flowers",
+    "title": "Colorful Blooms",
+    "buttonText": "Smell"
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg",
+    "altText": "Wildlife",
+    "title": "Wild Nature",
+    "buttonText": "Track"
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://images.pexels.com/photos/34950/pexels-photo.jpg",
+    "altText": "Railway",
+    "title": "Mountain Track",
+    "buttonText": "Ride"
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg",
+    "altText": "Sunset",
+    "title": "Evening Sky",
+    "buttonText": "Gaze"
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://images.pexels.com/photos/257840/pexels-photo-257840.jpeg",
+    "altText": "Field",
+    "title": "Green Fields",
+    "buttonText": "Walk"
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://images.pexels.com/photos/236047/pexels-photo-236047.jpeg",
+    "altText": "Clouds",
+    "title": "Sky View",
+    "buttonText": "Fly"
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg",
+    "altText": "Waterfall",
+    "title": "Falling Water",
+    "buttonText": "Swim"
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg",
+    "altText": "Rocks",
+    "title": "Stone Formation",
+    "buttonText": "Climb"
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg",
+    "altText": "Bridge",
+    "title": "River Crossing",
+    "buttonText": "Cross"
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg",
+    "altText": "Cave",
+    "title": "Dark Cave",
+    "buttonText": "Enter"
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://images.pexels.com/photos/417430/pexels-photo-417430.jpeg",
+    "altText": "Snow",
+    "title": "Winter Wonder",
+    "buttonText": "Slide"
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg",
+    "altText": "Cornfield",
+    "title": "Golden Harvest",
+    "buttonText": "Reap"
+  },
+  {
+    "id": 18,
+    "imageUrl": "https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg",
+    "altText": "Aurora",
+    "title": "Northern Lights",
+    "buttonText": "Wonder"
+  },
+  {
+    "id": 19,
+    "imageUrl": "https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg",
+    "altText": "Fog",
+    "title": "Misty Morning",
+    "buttonText": "Wake"
+  }
+]
