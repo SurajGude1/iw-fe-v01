@@ -71,8 +71,8 @@ export default function Hero() {
           <Button
             text="Read More"
             backgroundColor="var(--electric-blue)"
-            textColor="var(--off-white)"
-            hoverEffect={true}
+            textColor="var(--rich-black)"
+            hoverEffect={false}
             onClick={() => console.log("Read more clicked")}
           />
         </div>
