@@ -60,7 +60,7 @@ export default function Hero() {
           <p>
             Our platform offers cutting-edge solutions designed to streamline
             your workflow and boost productivity. With intuitive interfaces and
-            powerful tools, you'll achieve more in less time.
+            powerful tools, you&apos;ll achieve more in less time.
           </p>
           <p>
             Join thousands of satisfied users who have transformed their daily
