@@ -16,9 +16,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/material": "^7.0.2",
-    "@next/font": "^14.2.15",
     "@toolpad/core": "^0.14.0",
-    "next": "15.3.1",
+    "lightningcss": "^1.29.3",
+    "next": "^15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
