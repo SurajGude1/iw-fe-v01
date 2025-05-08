@@ -1,0 +1,38 @@
+[
+    {
+      "author": "Nature Photographer",
+      "datePosted": "June 10, 2023",
+      "imageUrl": "https://images.pexels.com/photos/1043558/pexels-photo-1043558.jpeg",
+      "title": "The silent stories hidden in abandoned places",
+      "likes": "12.8k",
+      "shares": "123",
+      "cardSummary": "Our platform offers cutting-edge solutions designed to streamline your workflow and boost productivity. With intuitive interfaces and powerful tools, you'll achieve more in less time."
+    },
+    {
+      "author": "Urban Explorer",
+      "datePosted": "July 15, 2023",
+      "imageUrl": "https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg",
+      "title": "The vibrant life of city streets at night",
+      "likes": "8.5k",
+      "shares": "256",
+      "cardSummary": "Experience the pulse of the city through our immersive tours. Discover hidden gems and local favorites that most tourists never see."
+    },
+    {
+      "author": "Wildlife Adventurer",
+      "datePosted": "August 22, 2023",
+      "imageUrl": "https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg",
+      "title": "Encounters with majestic creatures in the wild",
+      "likes": "15.3k",
+      "shares": "412",
+      "cardSummary": "Our wildlife expeditions bring you face-to-face with nature's most magnificent animals in their natural habitats, with minimal environmental impact."
+    },
+    {
+      "author": "Mountain Guide",
+      "datePosted": "September 5, 2023",
+      "imageUrl": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+      "title": "Conquering peaks: Stories from the summit",
+      "likes": "20.1k",
+      "shares": "378",
+      "cardSummary": "Join our expert guides on unforgettable mountain journeys. Whether you're a beginner or seasoned climber, we have the perfect adventure for you."
+    }
+  ]
