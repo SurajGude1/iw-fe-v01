@@ -2,6 +2,7 @@ import styles from "./hero.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShare } from "@fortawesome/free-solid-svg-icons";
 import Button from "../global/buttons/button";
+import Image from "next/image"; 
 
 export default function Hero() {
   const cardData = {
@@ -26,12 +27,13 @@ export default function Hero() {
         </div>
 
         <div className={styles.ImageWrapper}>
-          <img
+          <Image
             src={cardData.imageUrl}
             alt={cardData.title}
-            loading="lazy"
             width={320}
             height={200}
+            className={styles.Image}
+            priority={false}
           />
         </div>
 
