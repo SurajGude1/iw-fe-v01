@@ -2,7 +2,7 @@ import styles from "./hero.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShare } from "@fortawesome/free-solid-svg-icons";
 import Button from "../global/buttons/button";
-import Image from "next/image"; 
+import Image from "next/image";
 
 export default function Hero() {
   const cardData = {
@@ -81,8 +81,6 @@ export default function Hero() {
       {/* Video Ads (Right) */}
       <div className={styles.VideoAds}>
         <h3 className={styles.SummaryTitle}>Featured</h3>
-
-        {/* First Video Container */}
         <div className={styles.VideoContainer}>
           <video
             autoPlay
@@ -97,10 +95,6 @@ export default function Hero() {
               type="video/mp4"
             />
           </video>
-        </div>
-
-        {/* Second Video Container */}
-        <div className={styles.VideoContainer}>
           <video
             autoPlay
             muted
