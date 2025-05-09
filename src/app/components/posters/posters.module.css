@@ -3,29 +3,59 @@
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.2rem;
     background-color: var(--background-color);
+    position: relative;
 }
 
 .PostersTitle {
     color: var(--off-white);
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    text-align: left;
+    font-size: 1.4rem;
 }
 
-.Caresol {
+.CarouselContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.Carousel {
     width: 100%;
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
-    padding: 1rem 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
 
-.Caresol::-webkit-scrollbar {
+.Carousel::-webkit-scrollbar {
     display: none;
+}
+
+.NavButton {
+    position: absolute;
+    background: none;
+    border: none;
+    color: var(--off-white);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.NavButton:hover {
+    opacity: 1;
+}
+
+.LeftButton {
+    left: 0;
+}
+
+.RightButton {
+    right: 0;
 }
 
 .Poster {
@@ -112,6 +142,10 @@
         --poster-width: 9rem;
         --poster-height: 10.8rem;
     }
+
+    .NavButton {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -127,6 +161,10 @@
     .PostersTitle {
         color: var(--off-white);
         font-size: 1.5rem;
+    }
+
+    .NavButton {
+        font-size: 1.6rem;
     }
 }
 
@@ -144,12 +182,16 @@
         border: 0.2rem solid var(--off-white);
     }
 
-    .Caresol {
+    .Carousel {
         gap: 1rem;
     }
 
     .KnowMoreBtn {
         padding: 0.4rem 0.8rem;
         font-size: 0.8rem;
+    }
+
+    .NavButton {
+        font-size: 1.4rem;
     }
 }
