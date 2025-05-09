@@ -69,7 +69,7 @@ export default function SocialCards() {
             <input
               type="text"
               className={styles.SocialCardsSearchInput}
-              placeholder="| Search"
+              placeholder="Search here"
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
@@ -97,8 +97,13 @@ export default function SocialCards() {
                     src={card.imageUrl}
                     alt={card.title}
                     fill
-                    style={{ objectFit: 'cover' }}
+                    style={{
+                      objectFit: 'cover',  /* Ensures image covers container */
+                      objectPosition: 'center', /* Optional: Adjust focus area */
+                      borderRadius: 'inherit',  /* Inherits radius from parent */
+                    }}
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={false} /* Optional: Adjust loading behavior */
                   />
                 </div>
                 <div className={styles.SocialCardContent}>
