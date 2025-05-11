@@ -207,6 +207,10 @@
     gap: 1.5rem;
   }
 
+  .VideoAds{
+    display: none;
+  }
+
   .VideoContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
