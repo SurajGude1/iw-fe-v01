@@ -3,7 +3,7 @@
         "id": 1,
         "title": "Climate Change Protest",
         "description": "Youth activists demand action from world leaders at global summit",
-        "imageUrl": "https://images.pexels.com/photos/6739692/pexels-photo-6739692.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg",
         "dateAdded": "2023-05-15",
         "views": 1245,
         "category": "environment"
@@ -12,7 +12,7 @@
         "id": 2,
         "title": "Gender Equality March",
         "description": "Thousands gather for equal pay and workplace rights",
-        "imageUrl": "https://images.pexels.com/photos/4492129/pexels-photo-4492129.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/1032115/pexels-photo-1032115.jpeg",
         "dateAdded": "2023-06-22",
         "views": 892,
         "category": "equality"
@@ -21,7 +21,7 @@
         "id": 3,
         "title": "Refugee Crisis",
         "description": "Families displaced by conflict seek safe haven",
-        "imageUrl": "https://images.pexels.com/photos/3550784/pexels-photo-3550784.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/6929741/pexels-photo-6929741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "dateAdded": "2023-07-10",
         "views": 1567,
         "category": "humanitarian"
@@ -30,7 +30,7 @@
         "id": 4,
         "title": "Healthcare Access Rally",
         "description": "Activists push for universal healthcare coverage",
-        "imageUrl": "https://images.pexels.com/photos/7088525/pexels-photo-7088525.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/8460156/pexels-photo-8460156.jpeg",
         "dateAdded": "2023-08-05",
         "views": 2043,
         "category": "health"
@@ -39,7 +39,7 @@
         "id": 5,
         "title": "Education Reform",
         "description": "Students protest rising tuition costs and student debt",
-        "imageUrl": "https://images.pexels.com/photos/5212359/pexels-photo-5212359.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/301926/pexels-photo-301926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "dateAdded": "2023-09-18",
         "views": 765,
         "category": "education"
@@ -48,7 +48,7 @@
         "id": 6,
         "title": "Racial Justice Movement",
         "description": "Community leaders address systemic inequality in policing",
-        "imageUrl": "https://images.pexels.com/photos/5699475/pexels-photo-5699475.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/5762873/pexels-photo-5762873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         "dateAdded": "2023-10-03",
         "views": 1321,
         "category": "justice"
@@ -57,7 +57,7 @@
         "id": 7,
         "title": "Housing Rights Protest",
         "description": "Residents fight against gentrification and displacement",
-        "imageUrl": "https://images.pexels.com/photos/5843990/pexels-photo-5843990.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/8474026/pexels-photo-8474026.jpeg",
         "dateAdded": "2023-11-12",
         "views": 987,
         "category": "housing"
@@ -66,7 +66,7 @@
         "id": 8,
         "title": "Disability Rights Awareness",
         "description": "Advocates push for better accessibility infrastructure",
-        "imageUrl": "https://images.pexels.com/photos/5698476/pexels-photo-5698476.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/8454246/pexels-photo-8454246.jpeg",
         "dateAdded": "2023-12-01",
         "views": 1123,
         "category": "accessibility"
@@ -75,7 +75,7 @@
         "id": 9,
         "title": "Food Insecurity",
         "description": "Community kitchens address rising hunger crisis",
-        "imageUrl": "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/6646905/pexels-photo-6646905.jpeg",
         "dateAdded": "2024-01-15",
         "views": 1456,
         "category": "hunger"
@@ -84,7 +84,7 @@
         "id": 10,
         "title": "LGBTQ+ Rights March",
         "description": "Celebrating diversity and demanding equal protections",
-        "imageUrl": "https://images.pexels.com/photos/3255219/pexels-photo-3255219.jpeg",
+        "imageUrl": "https://images.pexels.com/photos/3992870/pexels-photo-3992870.jpeg",
         "dateAdded": "2024-02-20",
         "views": 876,
         "category": "lgbtq"

@@ -98,12 +98,12 @@ export default function SocialCards() {
                     alt={card.title}
                     fill
                     style={{
-                      objectFit: 'cover',  /* Ensures image covers container */
-                      objectPosition: 'center', /* Optional: Adjust focus area */
-                      borderRadius: 'inherit',  /* Inherits radius from parent */
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      borderRadius: 'inherit',
                     }}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    priority={false} /* Optional: Adjust loading behavior */
+                    priority={false}
                   />
                 </div>
                 <div className={styles.SocialCardContent}>
