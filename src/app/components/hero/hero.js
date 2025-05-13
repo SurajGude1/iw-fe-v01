@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import cardData from "../../data/card-data.json";
 import styles from "./hero.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,33 +8,46 @@ import Image from "next/image";
 
 export default function Hero() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [isFlipping, setIsFlipping] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFlipping(true);
-      
-      setTimeout(() => {
-        setCurrentCardIndex((prevIndex) => 
-          prevIndex === cardData.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 400);
-      
-      setTimeout(() => {
-        setIsFlipping(false);
-      }, 800);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef(null);
 
   const currentCard = cardData[currentCardIndex];
+
+  useEffect(() => {
+    if (!isHovered) {
+      intervalRef.current = setInterval(() => {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setCurrentCardIndex(prev =>
+            prev === cardData.length - 1 ? 0 : prev + 1
+          );
+          setIsAnimating(false);
+        }, 800);
+      }, 5000);
+    }
+
+    return () => clearInterval(intervalRef.current);
+  }, [isHovered, currentCardIndex]);
+
+  const handleHover = () => {
+    setIsHovered(true);
+    clearInterval(intervalRef.current);
+  };
+
+  const handleHoverEnd = () => {
+    setIsHovered(false);
+  };
 
   return (
     <div className={styles.Hero}>
       {/* Main Card (Left) */}
-      <article className={styles.Card}>
-        <div className={`${styles.CardInner} ${isFlipping ? styles.CardFlipping : ''}`}>
+      <article
+        className={styles.Card}
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHoverEnd}
+      >
+        <div className={isAnimating ? styles.CardSlide : ''}>
           <div className={styles.AuthorSection}>
             <span className={styles.AuthorName}>{currentCard.author}</span>
             <time className={styles.DatePosted} dateTime={currentCard.datePosted}>
@@ -48,8 +61,7 @@ export default function Hero() {
               alt={currentCard.title}
               width={320}
               height={200}
-              className={styles.Image}
-              priority={false}
+              priority={currentCardIndex === 0}
             />
           </div>
 
@@ -70,23 +82,22 @@ export default function Hero() {
         </div>
       </article>
 
-      {/* Summary Card (Center - Widest) */}
-      <summary className={styles.Summary}>
-        <div className={`${styles.SummaryInner} ${isFlipping ? styles.SummaryFlipping : ''}`}>
+      {/* Summary Card (Center) */}
+      <summary
+        className={styles.Summary}
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHoverEnd}
+      >
+        <div className={isAnimating ? styles.SummaryFade : ''}>
           <h2 className={styles.SummaryTitle}>{currentCard.title}</h2>
           <div className={styles.SummaryContent}>
             <p>{currentCard.cardSummary}</p>
-            <p>
-              Join thousands of satisfied users who have transformed their daily
-              operations with our technology.
-            </p>
           </div>
           <div className={styles.SummaryFooter}>
             <Button
               text="Read More"
               backgroundColor="var(--electric-blue)"
               textColor="var(--rich-black)"
-              hoverEffect={false}
               onClick={() => console.log("Read more clicked")}
             />
           </div>
@@ -103,7 +114,6 @@ export default function Hero() {
             loop
             playsInline
             preload="metadata"
-            aria-label="Featured video 1"
           >
             <source
               src="https://videos.pexels.com/video-files/5057524/5057524-uhd_1440_2560_25fps.mp4"
@@ -116,7 +126,6 @@ export default function Hero() {
             loop
             playsInline
             preload="metadata"
-            aria-label="Featured video 2"
           >
             <source
               src="https://videos.pexels.com/video-files/5926065/5926065-uhd_1440_2560_24fps.mp4"
@@ -128,7 +137,3 @@ export default function Hero() {
     </div>
   );
 }
-
-
-
-

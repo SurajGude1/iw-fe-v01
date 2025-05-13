@@ -1,38 +1,52 @@
 [
-    {
-      "author": "Nature Photographer",
-      "datePosted": "June 10, 2023",
-      "imageUrl": "https://images.pexels.com/photos/1043558/pexels-photo-1043558.jpeg",
-      "title": "The silent stories hidden in abandoned places",
-      "likes": "12.8k",
-      "shares": "123",
-      "cardSummary": "Our platform offers cutting-edge solutions designed to streamline your workflow and boost productivity. With intuitive interfaces and powerful tools, you'll achieve more in less time."
-    },
-    {
-      "author": "Urban Explorer",
-      "datePosted": "July 15, 2023",
-      "imageUrl": "https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg",
-      "title": "The vibrant life of city streets at night",
-      "likes": "8.5k",
-      "shares": "256",
-      "cardSummary": "Experience the pulse of the city through our immersive tours. Discover hidden gems and local favorites that most tourists never see."
-    },
-    {
-      "author": "Wildlife Adventurer",
-      "datePosted": "August 22, 2023",
-      "imageUrl": "https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg",
-      "title": "Encounters with majestic creatures in the wild",
-      "likes": "15.3k",
-      "shares": "412",
-      "cardSummary": "Our wildlife expeditions bring you face-to-face with nature's most magnificent animals in their natural habitats, with minimal environmental impact."
-    },
-    {
-      "author": "Mountain Guide",
-      "datePosted": "September 5, 2023",
-      "imageUrl": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
-      "title": "Conquering peaks: Stories from the summit",
-      "likes": "20.1k",
-      "shares": "378",
-      "cardSummary": "Join our expert guides on unforgettable mountain journeys. Whether you're a beginner or seasoned climber, we have the perfect adventure for you."
-    }
-  ]
+  {
+    "id": 1,
+    "author": "Nature Photographer",
+    "datePosted": "June 10, 2023",
+    "imageUrl": "https://images.pexels.com/photos/1043558/pexels-photo-1043558.jpeg",
+    "title": "The Silent Stories Hidden in Abandoned Places",
+    "likes": "12.8k",
+    "shares": "123",
+    "cardSummary": "Explore the haunting beauty of forgotten locations through our lens. Each crumbling wall and overgrown pathway tells a unique story of time's passage. Our photography series documents these atmospheric spaces before they disappear forever, revealing the poignant intersection of nature and human history."
+  },
+  {
+    "id": 2,
+    "author": "Urban Explorer",
+    "datePosted": "July 15, 2023",
+    "imageUrl": "https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg",
+    "title": "The Vibrant Life of City Streets at Night",
+    "likes": "8.5k",
+    "shares": "256",
+    "cardSummary": "When the sun sets, cities transform into dazzling landscapes of light and energy. This visual journey captures the dynamic rhythm of metropolitan life after dark - from neon-lit alleyways to bustling night markets, revealing how urban spaces breathe differently when the moon rises."
+  },
+  {
+    "id": 3,
+    "author": "Wildlife Adventurer",
+    "datePosted": "August 22, 2023",
+    "imageUrl": "https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg",
+    "title": "Encounters With Majestic Creatures in the Wild",
+    "likes": "15.3k",
+    "shares": "412",
+    "cardSummary": "Witness the raw beauty of Earth's most incredible wildlife through our ethical safari experiences. Each expedition is carefully designed to respect animal habitats while providing once-in-a-lifetime opportunities to observe lions, elephants, and rare species in their natural environments with expert trackers."
+  },
+  {
+    "id": 4,
+    "author": "Mountain Guide",
+    "datePosted": "September 5, 2023",
+    "imageUrl": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+    "title": "Conquering Peaks: Stories From the Summit",
+    "likes": "20.1k",
+    "shares": "378",
+    "cardSummary": "Every mountain has a story, and every climber carries one to the top. Our alpine adventures combine technical expertise with profound respect for these natural giants. Learn about altitude preparation, glacier navigation, and the transformative power of standing where the earth meets the sky."
+  },
+  {
+    "id": 5,
+    "author": "Marine Biologist",
+    "datePosted": "October 12, 2023",
+    "imageUrl": "https://images.pexels.com/photos/847393/pexels-photo-847393.jpeg",
+    "title": "The Secret World Beneath the Waves",
+    "likes": "18.7k",
+    "shares": "521",
+    "cardSummary": "Dive into the mesmerizing underwater realms few ever witness. Our marine expeditions reveal vibrant coral cities, mysterious deep-sea creatures, and the delicate balance of ocean ecosystems. Using sustainable practices, we document these aquatic wonders while supporting conservation efforts."
+  }
+]

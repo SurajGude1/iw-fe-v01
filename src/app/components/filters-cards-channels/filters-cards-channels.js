@@ -63,7 +63,7 @@ export default function SocialCards() {
     <ThemeProvider theme={theme}>
       <div className={styles.SocialCardsContainer}>
         <main className={styles.SocialCardsMain} ref={mainRef}>
-          <h1 className={styles.SocialCardsHeader}>Read what you want</h1>
+          <h1 className={styles.SocialCardsHeader}>Read, Discover & Enjoy</h1>
 
           <div className={styles.SocialCardsSearchContainer}>
             <input
