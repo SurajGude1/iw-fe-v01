@@ -74,10 +74,11 @@ export default function SocialCards() {
                 }}
                 startAdornment={
                   <InputAdornment position="start">
-                    <SearchIcon sx={{ color: 'white' }} />
+                    <SearchIcon sx={{ color: 'var(--off-white)' }} />
                   </InputAdornment>
                 }
                 sx={{ color: 'white' }}
+
               />
             </FormControl>
 
@@ -158,3 +159,5 @@ export default function SocialCards() {
     </ThemeProvider>
   );
 }
+
+
