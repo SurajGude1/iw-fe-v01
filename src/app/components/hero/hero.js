@@ -23,8 +23,8 @@ export default function Hero() {
             prev === cardData.length - 1 ? 0 : prev + 1
           );
           setIsAnimating(false);
-        }, 800);
-      }, 5000);
+        }, 1100);
+      }, 10000);
     }
 
     return () => clearInterval(intervalRef.current);
@@ -88,7 +88,7 @@ export default function Hero() {
         onMouseEnter={handleHover}
         onMouseLeave={handleHoverEnd}
       >
-        <div className={isAnimating ? styles.SummaryFade : ''}>
+        <div className={isAnimating ? styles.SummaryFade : styles.SummaryContentContainer}>
           <h2 className={styles.SummaryTitle}>{currentCard.title}</h2>
           <div className={styles.SummaryContent}>
             <p>{currentCard.cardSummary}</p>
