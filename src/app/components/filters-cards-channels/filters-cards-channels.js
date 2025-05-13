@@ -4,27 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import Pagination from '@mui/material/Pagination';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { FiChevronDown } from 'react-icons/fi';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import cardsData from "../../data/horizontal-cards-data.json";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#ffffff',
-    },
-    text: {
-      primary: '#ffffff',
-    },
+    primary: { main: '#ffffff' },
+    text: { primary: '#ffffff' },
   },
   components: {
     MuiPaginationItem: {
       styleOverrides: {
-        root: {
-          color: '#ffffff',
-          borderColor: '#ffffff',
-        },
+        root: { color: '#ffffff', borderColor: '#ffffff' },
       },
     },
   },
@@ -53,12 +51,9 @@ export default function SocialCards() {
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
   const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
 
-  const handlePageChange = (event, value) => {
+  const handlePageChange = (_, value) => {
     setCurrentPage(value);
-    mainRef.current.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -68,27 +63,50 @@ export default function SocialCards() {
           <h1 className={styles.SocialCardsHeader}>Read, Discover & Enjoy</h1>
 
           <div className={styles.SocialCardsSearchContainer}>
-            <input
-              type="text"
-              className={styles.SocialCardsSearchInput}
-              placeholder="Search here"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setCurrentPage(1);
-              }}
-            />
-            <div className={styles.SocialCardsDropdownContainer}>
-              <select
-                className={styles.SocialCardsDropdown}
+            <FormControl fullWidth variant="standard" className={styles.SearchInputWrapper}>
+              <OutlinedInput
+                id="search-input"
+                placeholder="Search here"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setCurrentPage(1);
+                }}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <SearchIcon sx={{ color: 'white' }} />
+                  </InputAdornment>
+                }
+                sx={{ color: 'white' }}
+              />
+            </FormControl>
+
+            <FormControl variant="standard" className={styles.DropdownWrapper}>
+              <Select
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value)}
+                displayEmpty
+                inputProps={{ 'aria-label': 'Sort options' }}
+                sx={{
+                  color: 'white',
+                  '& .MuiSelect-icon': { color: 'white' },
+                  borderRadius: '50px',
+                  padding: '0.5rem 1rem',
+                }}
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      backgroundColor: 'var(--charcoal)', // only the dropdown list
+                      color: 'var(--off-white)',          // text color of the items
+                    },
+                  },
+                }}
               >
-                <option value="popular">Most Popular</option>
-                <option value="dateAdded">Newest First</option>
-              </select>
-              <FiChevronDown className={styles.SocialCardsDropdownArrow} />
-            </div>
+                <MenuItem value="popular">Most Popular</MenuItem>
+                <MenuItem value="dateAdded">Newest First</MenuItem>
+              </Select>
+
+            </FormControl>
           </div>
 
           <div className={styles.SocialCardsGrid}>
@@ -99,25 +117,18 @@ export default function SocialCards() {
                     src={card.imageUrl}
                     alt={card.title}
                     fill
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: 'center',
-                      borderRadius: 'inherit',
-                    }}
+                    style={{ objectFit: 'cover', borderRadius: 'inherit' }}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    priority={false}
                   />
                 </div>
                 <div className={styles.SocialCardContent}>
                   <h2 className={styles.SocialCardTitle}>{card.title}</h2>
                   <p className={styles.SocialCardDescription}>{card.description}</p>
                   <div className={styles.SocialCardFooter}>
-                    <Link href="#" className={styles.SocialCardKnowMore}>
-                      Know more
-                    </Link>
                     <span className={styles.SocialCardViews}>
                       <FontAwesomeIcon icon={faEye} /> {card.views}
                     </span>
+                    <Link href="#" className={styles.SocialCardKnowMore}>Know more</Link>
                   </div>
                 </div>
               </article>
