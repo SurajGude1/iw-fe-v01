@@ -5,6 +5,8 @@ import Link from "next/link";
 import Pagination from '@mui/material/Pagination';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { FiChevronDown } from 'react-icons/fi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 import cardsData from "../../data/horizontal-cards-data.json";
 
 const theme = createTheme({
@@ -113,7 +115,9 @@ export default function SocialCards() {
                     <Link href="#" className={styles.SocialCardKnowMore}>
                       Know more
                     </Link>
-                    <span className={styles.SocialCardViews}>{card.views} views</span>
+                    <span className={styles.SocialCardViews}>
+                      <FontAwesomeIcon icon={faEye} /> {card.views}
+                    </span>
                   </div>
                 </div>
               </article>

@@ -47,37 +47,40 @@ export default function Hero() {
         onMouseEnter={handleHover}
         onMouseLeave={handleHoverEnd}
       >
-        <div className={isAnimating ? styles.CardSlide : ''}>
-          <div className={styles.AuthorSection}>
-            <span className={styles.AuthorName}>{currentCard.author}</span>
-            <time className={styles.DatePosted} dateTime={currentCard.datePosted}>
-              {currentCard.datePosted}
-            </time>
+        <div className={isAnimating ? styles.CardSlide : styles.CardContent}>
+          <div className={styles.TopSection}>
+            <div className={styles.AuthorSection}>
+              <span className={styles.AuthorName}>{currentCard.author}</span>
+              <time className={styles.DatePosted} dateTime={currentCard.datePosted}>
+                {currentCard.datePosted}
+              </time>
+            </div>
+
+            <div className={styles.ImageWrapper}>
+              <Image
+                src={currentCard.imageUrl}
+                alt={currentCard.title}
+                width={320}
+                height={200}
+                priority={currentCardIndex === 0}
+              />
+            </div>
+
+            <h3 className={styles.Title}>{currentCard.title}</h3>
           </div>
 
-          <div className={styles.ImageWrapper}>
-            <Image
-              src={currentCard.imageUrl}
-              alt={currentCard.title}
-              width={320}
-              height={200}
-              priority={currentCardIndex === 0}
-            />
-          </div>
-
-          <h3 className={styles.Title}>{currentCard.title}</h3>
-
-          <div className={styles.Divider} />
-
-          <div className={styles.Actions}>
-            <button aria-label="Like">
-              <FontAwesomeIcon icon={faHeart} />
-              <span>{currentCard.likes}</span>
-            </button>
-            <button aria-label="Share">
-              <FontAwesomeIcon icon={faShare} />
-              <span>{currentCard.shares}</span>
-            </button>
+          <div className={styles.BottomSection}>
+            <div className={styles.Divider} />
+            <div className={styles.Actions}>
+              <button aria-label="Like">
+                <FontAwesomeIcon icon={faHeart} style={{ fontSize: '1.4rem' }} />
+                <span>{currentCard.likes}</span>
+              </button>
+              <button aria-label="Share">
+                <FontAwesomeIcon icon={faShare} style={{ fontSize: '1.4rem' }} />
+                <span>{currentCard.shares}</span>
+              </button>
+            </div>
           </div>
         </div>
       </article>
