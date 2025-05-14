@@ -1,15 +1,14 @@
 .UserReviewsSection {
     padding: 3rem 1rem;
-    /* background-color: #f7f9fc; */
     overflow: hidden;
 }
 
 .SectionTitle {
-    font-size: 2rem;
-    text-align: center;
+    font-size: 1.4rem;
+    text-align: left;
     margin-bottom: 2rem;
     font-weight: 600;
-    color: #333;
+    color: var(--off-white);
 }
 
 .CarouselWrapper {
@@ -22,6 +21,11 @@
     display: flex;
     width: max-content;
     animation: ScrollLeft 60s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+
+
 }
 
 .CarouselWrapper:hover .CarouselTrack {
@@ -48,6 +52,9 @@
     margin: 0 1rem;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+
 }
 
 .ReviewCard:hover {
