@@ -28,9 +28,10 @@
     margin: 5px 0;
     font-weight: bold;
     line-height: 2.5;
-    background: -webkit-linear-gradient(#eee, var(--verdigris));
-    -webkit-background-clip: text;
+    background: linear-gradient(to right, var(--off-white),
+            var(--bone-white), var(--electric-blue), var(--bone-white));
     -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
 .MetadataLabel {
