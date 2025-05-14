@@ -1,4 +1,4 @@
-import styles from './Collaborators.module.css';
+import styles from './collaborators.module.css';
 
 const BRANDS = [
   "Apple", "Sony", "Google", "Microsoft", "Amazon",
