@@ -27,18 +27,19 @@
     font-size: 2rem;
     margin: 5px 0;
     font-weight: bold;
-    font-family: 'Roboto', sans-serif;
     line-height: 2.5;
+    background: -webkit-linear-gradient(#eee, var(--verdigris));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .MetadataLabel {
-    font-size: 0.9rem;
-    /* text-transform: uppercase; */
-    letter-spacing: 0.7px;
-    opacity: 0.8;
+    font-size: 1.1rem;
+    letter-spacing: 0.8px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    color: var(--off-white);
+    /* text-overflow: ellipsis; */
 }
 
 @media (max-width: 768px) {
