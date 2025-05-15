@@ -36,6 +36,75 @@
     flex-wrap: nowrap;
 }
 
+.YoutubeIcon {
+    color: #FF0000;
+    font-size: 1.2rem;
+    margin: 0 0.3rem;
+    vertical-align: middle;
+}
+
+
+/* YouTube Channels Grid */
+.YouTubeChannelsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.YouTubeChannelBox {
+  background: var(--charcoal);
+  color: var(--off-white);
+  padding: 0.5rem 0.3rem;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.YouTubeChannelBox:hover {
+  background: var(--charcoal-light);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments - Horizontal Scroller */
+@media (max-width: 768px) {
+  .YouTubeChannelsGrid {
+    display: flex;
+    grid-template-columns: unset;
+    overflow-x: auto;
+    gap: 0.8rem;
+    padding-bottom: 0.8rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .YouTubeChannelBox {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 32px;
+    font-size: 0.8rem;
+    scroll-snap-align: start;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .YouTubeChannelsGrid::-webkit-scrollbar {
+    display: none;
+  }
+  .YouTubeChannelsGrid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 .SearchInputWrapper {
     flex: 2;
     min-width: 150px;

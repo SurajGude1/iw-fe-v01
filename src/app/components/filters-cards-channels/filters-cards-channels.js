@@ -13,6 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import cardsData from "../../data/horizontal-cards-data.json";
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const theme = createTheme({
   palette: {
@@ -148,12 +149,28 @@ export default function SocialCards() {
             </div>
           )}
         </main>
-
         <aside className={styles.SocialCardsSidebar}>
           <h3 className={styles.SocialCardsSidebarHeader}>Wake & Participate</h3>
           <div className={styles.SocialCardsChannelBox}>Community Forum</div>
           <div className={styles.SocialCardsChannelBox}>Upcoming Events</div>
           <div className={styles.SocialCardsChannelBox}>Volunteer Opportunities</div>
+
+          <p className={styles.SocialCardsSidebarSubheader}>
+            Featured
+            <FontAwesomeIcon icon={faYoutube} className={styles.YoutubeIcon} />
+            channels
+          </p>
+
+          <div className={styles.YouTubeChannelsGrid}>
+            <a href="#" className={styles.YouTubeChannelBox}>Tech Reviews</a>
+            <a href="#" className={styles.YouTubeChannelBox}>Cooking Master</a>
+            <a href="#" className={styles.YouTubeChannelBox}>Fitness Guru</a>
+            <a href="#" className={styles.YouTubeChannelBox}>Travel Vlogs</a>
+            <a href="#" className={styles.YouTubeChannelBox}>Gaming Zone</a>
+            <a href="#" className={styles.YouTubeChannelBox}>DIY Crafts</a>
+            <a href="#" className={styles.YouTubeChannelBox}>Finance Tips</a>
+            <a href="#" className={styles.YouTubeChannelBox}>Science Today</a>
+          </div>
         </aside>
       </div>
     </ThemeProvider>
