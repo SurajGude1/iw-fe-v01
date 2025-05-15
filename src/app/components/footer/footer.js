@@ -21,12 +21,12 @@ export default function Footer() {
         <div className={styles.AboutSection}>
           <Logo />
           <p className={styles.AboutText}>
-            " IndianWriters, established in 2025, is committed to fostering
+            {`"IndianWriters, established in 2025, is committed to fostering
             awareness and driving meaningful conversations across society. Our
             organization serves as a platform for insightful discourse on
             social, political, health, and technology-related topics, empowering
             individuals with knowledge and perspectives that inspire positive
-            change. "
+            change."`}
           </p>
           <div className={styles.SocialLinks}>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
