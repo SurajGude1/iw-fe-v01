@@ -1,0 +1,11 @@
+.BounceInSection {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: opacity, transform;
+}
+
+.IsVisible {
+  opacity: 1;
+  transform: scale(1);
+}
