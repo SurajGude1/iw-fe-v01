@@ -4,62 +4,27 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  contain: layout paint; /* Improves performance */
 }
 
-/* Base styles remain the same */
 .Header {
   font-family: var(--font-sour-gummy);
-  font-size: 1.5rem; /* Base size */
+  font-size: clamp(1.275rem, 4vw, 1.5rem); /* Fluid typography */
   color: var(--electric-blue);
   line-height: 1.2;
   margin: 0;
-  transition: font-size 0.3s ease; /* Smooth scaling */
-}
-
-.SubHeader {
-  font-size: 0.5rem;
-  letter-spacing: 0.125rem;
-  word-spacing: 0.0625rem;
-  color: var(--bone-white);
-  margin: 0.25rem 0 0;
-  transition: all 0.3s ease; /* Smooth scaling */
 }
 
 .Header span {
   color: var(--off-white);
 }
 
-/* Tablet (768px and below) - 5% reduction */
-@media (max-width: 768px) {
-  .Header {
-    font-size: 1.425rem; /* 5% smaller than 1.5rem */
-  }
-
-  .SubHeader {
-    font-size: 0.475rem; /* 5% smaller than 0.5rem */
-    margin-top: 0.2375rem;
-  }
+.SubHeader {
+  font-size: clamp(0.425rem, 1.5vw, 0.5rem);
+  letter-spacing: 0.125rem;
+  word-spacing: 0.0625rem;
+  color: var(--bone-white);
+  margin: 0.25rem 0 0;
 }
 
-/* Mobile (480px and below) - Additional 5% reduction (total 10%) */
-@media (max-width: 480px) {
-  .Header {
-    font-size: 1.35rem; /* 10% smaller than original */
-  }
-
-  .SubHeader {
-    font-size: 0.45rem; /* 10% smaller than original */
-  }
-}
-
-/* Small mobile (360px and below) - Slightly more reduction */
-@media (max-width: 360px) {
-  .Header {
-    font-size: 1.275rem; /* 15% smaller than original */
-  }
-
-  .SubHeader {
-    font-size: 0.425rem; /* 15% smaller than original */
-    letter-spacing: 0.1rem;
-  }
-}
+/* Remove all media queries - handled by clamp() */
