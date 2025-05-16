@@ -150,10 +150,10 @@ export default function SocialCards() {
           )}
         </main>
         <aside className={styles.SocialCardsSidebar}>
-          <h3 className={styles.SocialCardsSidebarHeader}>
+          <p className={styles.SocialCardsSidebarHeader}>
             <span className={styles.RecordingIcon}></span>
             Wake & Participate
-          </h3>
+          </p>
 
           <div className={styles.SocialCardsChannelBox}>Community Forum</div>
           <div className={styles.SocialCardsChannelBox}>Upcoming Events</div>
