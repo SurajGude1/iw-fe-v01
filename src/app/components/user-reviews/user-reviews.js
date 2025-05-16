@@ -1,12 +1,39 @@
+'use client';
+
 import styles from "./user-reviews.module.css";
-import { useMemo } from "react";
-import ReviewsData from "../../data/user-reviews.json"; // ✅ Import from JSON file
+import { useMemo, useRef, useEffect, useState } from "react";
+import ReviewsData from "../../data/user-reviews.json";
 
 export default function UserReviews() {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
   const scrollingReviews = useMemo(() => [...ReviewsData, ...ReviewsData], []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className={styles.UserReviewsSection} aria-label="Customer testimonials">
+    <section
+      ref={sectionRef}
+      className={`${styles.UserReviewsSection} ${isVisible ? styles.Animate : styles.Pause}`}
+      aria-label="Customer testimonials"
+    >
       <h2 className={styles.SectionTitle}>Voices of Our Community</h2>
       <div className={styles.CarouselWrapper}>
         <div className={styles.CarouselTrack}>
@@ -39,5 +66,3 @@ function ReviewCard({ review }) {
     </article>
   );
 }
-
-

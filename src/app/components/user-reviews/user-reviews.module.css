@@ -20,12 +20,17 @@
 .CarouselTrack {
     display: flex;
     width: max-content;
-    animation: ScrollLeft 60s linear infinite;
     will-change: transform;
     backface-visibility: hidden;
-    transform: translateZ(0);
+    contain: layout paint;
+}
 
+.Animate .CarouselTrack {
+    animation: ScrollLeft 60s linear infinite;
+}
 
+.Pause .CarouselTrack {
+    animation: none;
 }
 
 .CarouselWrapper:hover .CarouselTrack {
@@ -54,7 +59,6 @@
     transition: transform 0.3s ease-in-out;
     backface-visibility: hidden;
     transform: translateZ(0);
-
 }
 
 .ReviewCard:hover {
@@ -83,7 +87,6 @@
     line-height: 1.4;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .ReviewCard {
         width: 200px;

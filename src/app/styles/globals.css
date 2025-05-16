@@ -97,6 +97,16 @@ html {
   /* Prevent font scaling on modern browsers */
   height: 100%;
   /* Full height for layout control */
+  overscroll-behavior: none;
+  /* Prevent scroll chaining/jumping */
+  backface-visibility: hidden;
+  /* GPU acceleration to reduce flicker */
+  transform: translateZ(0);
+  /* Trigger hardware acceleration */
+  will-change: scroll-position;
+  /* Hint browser to optimize scroll */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 /* Body layout and appearance */
@@ -108,7 +118,7 @@ body {
   font-family: var(--font-verdana);
   /* Set global font */
   color: var(--color-text);
-  /* Use theme text color (should be defined) */
+  /* Use theme text color */
   background-color: var(--light-grey);
   /* Light grey background */
   text-rendering: optimizeLegibility;
@@ -127,6 +137,14 @@ body {
   /* Remove default margin */
   padding: 0;
   /* Remove default padding */
+  -webkit-overflow-scrolling: touch;
+  /* Enable momentum scroll on iOS */
+  backface-visibility: hidden;
+  /* Prevent flickering during scroll */
+  transform: translateZ(0);
+  /* Trigger GPU acceleration */
+  will-change: transform, scroll-position;
+  /* Performance optimization */
 }
 
 /* ============================= */
