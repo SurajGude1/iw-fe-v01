@@ -8,20 +8,23 @@ import UserReviews from "./components/user-reviews/user-reviews";
 import SiteMetadata from "./components/site-metadata/site-metadata";
 import Collaborators from "./components/collaborators/collaborators";
 import Footer from "./components/footer/footer";
+import FadeInSection from "./components/global/animations/fade-in";
 
 export default function Home() {
   return (
     <div className={styles.MainWrapper}>
       <TopNavigationBar />
-      <Hero />
-      <Posters />
-      <FiltersCardsChannels />
-      <UserReviews />
-      <SiteMetadata />
-      <Collaborators />
-      <Footer />
+      <FadeInSection><Hero /></FadeInSection>
+      <FadeInSection><Posters /></FadeInSection>
+      <FadeInSection><FiltersCardsChannels /></FadeInSection>
+      <FadeInSection><UserReviews /></FadeInSection>
+      <FadeInSection><SiteMetadata /></FadeInSection>
+      <FadeInSection><Collaborators /></FadeInSection>
+      <FadeInSection><Footer /></FadeInSection>
     </div>
   );
 }
+
+
 
 

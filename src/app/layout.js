@@ -12,13 +12,13 @@ const sourGummy = Sour_Gummy({
 
 export const metadata = {
   title: {
-    default: "IndianWriters",
-    template: "%s | IndianWriters",
+    default: "Golden-Words",
+    template: "%s | Golden-Words",
   },
   description: "Professional blog platform",
   metadataBase: new URL(process.env.SITE_URL || "http://localhost:3000"),
   openGraph: {
-    title: "IndianWriters",
+    title: "Golden-Words",
     description: "Professional blog platform",
     url: process.env.SITE_URL || "http://localhost:3000",
     siteName: "Modern Blog",

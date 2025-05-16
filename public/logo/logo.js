@@ -41,7 +41,7 @@ const Logo = memo(() => {
       aria-label="IndianWriters - Timeless Voices"
     >
       <h1 className={styles.Header}>
-        Indian<span className={isLightBackground ? styles.lightBackgroundSpan : ''}>Writers</span>
+        Golden<span className={isLightBackground ? styles.lightBackgroundSpan : ''}>Words</span>
       </h1>
       <p className={styles.SubHeader} aria-hidden="true">
         TIMELESS VOICES
