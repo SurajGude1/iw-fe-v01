@@ -1,6 +1,8 @@
 'use client';
+
 import dynamic from 'next/dynamic';
-import styles from "./styles/not-found.module.css";
+import Link from 'next/link';
+import styles from './styles/not-found.module.css';
 
 // Dynamically load the Logo component without SSR
 const Logo = dynamic(() => import('../../public/logo/logo'), {
@@ -14,7 +16,7 @@ export default function NotFound() {
       <Logo />
       <h1 className={styles.PageTitle}>Page not found...</h1>
       <div className={styles.Actions}>
-        <a href="/" className={styles.HomeLink}>Return Home</a>
+        <Link href="/" className={styles.HomeLink}>Return Home</Link>
       </div>
     </main>
   );
