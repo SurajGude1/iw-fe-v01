@@ -1,0 +1,145 @@
+.LoaderWrapper {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.BallContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.BallWrapper {
+    position: relative;
+    width: 1.2rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Ball {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.Trail {
+    position: absolute;
+    width: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: var(--charcoal);
+    opacity: 0;
+    animation: trailAnim 1.8s ease-in-out infinite;
+}
+
+.Ball.offWhite {
+    background-color: var(--off-white);
+}
+
+.Ball.charcoal {
+    background-color: var(--charcoal);
+}
+
+/* Specific animations */
+
+.BallWrapper:nth-child(1) .Ball {
+    animation: bounceUp 1.8s ease-in-out infinite;
+}
+
+.BallWrapper:nth-child(1) .Trail {
+    height: 2.2rem;
+    bottom: 0;
+    background-color: var(--charcoal);
+}
+
+.BallWrapper:nth-child(2) .Ball {
+    animation: bounceDown 1.8s ease-in-out infinite;
+}
+
+.BallWrapper:nth-child(2) .Trail {
+    height: 2.2rem;
+    top: 0;
+    background-color: var(--off-white);
+}
+
+.BallWrapper:nth-child(3) .Ball {
+    animation: bounceUp 1.8s ease-in-out infinite;
+}
+
+.BallWrapper:nth-child(3) .Trail {
+    height: 2.2rem;
+    bottom: 0;
+    background-color: var(--charcoal);
+}
+
+.BallWrapper:nth-child(4) .Ball {
+    animation: bounceDown 1.8s ease-in-out infinite;
+}
+
+.BallWrapper:nth-child(4) .Trail {
+    height: 2.2rem;
+    top: 0;
+    background-color: var(--off-white);
+}
+
+.BallWrapper:nth-child(5) .Ball {
+    animation: bounceUp 1.8s ease-in-out infinite;
+}
+
+.BallWrapper:nth-child(5) .Trail {
+    height: 2.2rem;
+    bottom: 0;
+    background-color: var(--charcoal);
+}
+
+/* Bounce animations */
+
+@keyframes bounceUp {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2.2rem);
+    }
+}
+
+@keyframes bounceDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(2.2rem);
+    }
+}
+
+/* Trail opacity animation */
+@keyframes trailAnim {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        opacity: 1;
+    }
+}

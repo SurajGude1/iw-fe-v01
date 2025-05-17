@@ -1,5 +1,6 @@
 import { Sour_Gummy } from "next/font/google";
 import "./styles/globals.css";
+import Loader from "./components/loader/loader";
 
 // Google Font optimization (Artifika)
 const sourGummy = Sour_Gummy({
@@ -45,7 +46,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><Loader />{children}</body>
     </html>
   );
 }
