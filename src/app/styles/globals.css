@@ -1,84 +1,47 @@
-/* ============================= */
-/*        CSS VARIABLES         */
-/* ============================= */
-
+/* CSS Variables */
 :root {
   /* Font Families */
   --font-sour-gummy: "Sour Gummy", cursive;
-  /* Decorative, playful typeface */
   --font-verdana: Verdana, Geneva, Tahoma, sans-serif;
-  /* Clean, readable sans-serif stack */
 
   /* Font Weights */
   --font-weight-xs: 200;
-  /* Extra light weight */
   --font-weight-m: 400;
-  /* Regular/medium weight */
   --font-weight-xl: 200;
-  /* Light weight for larger text (possibly a typo if meant to be bold) */
 
   /* Color palette */
   --light-grey: #e3e3e3;
-  /* Background or muted elements */
   --rich-black: #001011;
-  /* Deep black for contrast */
   --midnight-green: #093a3e;
-  /* Dark teal tone */
   --verdigris: #3aafb9;
-  /* Cool greenish-blue accent */
   --electric-blue: #64e9ee;
-  /* Bright cyan highlight */
   --light-sky-blue: #97c8eb;
-  /* Soft blue for links or accents */
   --bone-white: #f9f6ee;
-  /* Subtle warm white */
   --alabaster: #edeade;
-  /* Light neutral background */
   --off-white: #faf9f6;
-  /* Slightly tinted white */
   --pearl: #e2dfd2;
-  /* Soft beige-like white */
   --coke-red: #f40009;
-  /* Strong red for alerts or CTA */
   --lime-green: #00ff00;
-  /* High-contrast green */
   --charcoal: #36454f;
-  /* Deep grey, good for text or backgrounds */
   --gold: #ffd700;
-  /* Accent or highlight color */
 
-  /* Spacing (consistent units) */
+  /* Spacing */
   --space-xs: 0.25rem;
-  /* Extra small spacing */
   --space-sm: 0.5rem;
-  /* Small spacing */
   --space-md: 1rem;
-  /* Medium spacing */
   --space-lg: 1.5rem;
-  /* Large spacing */
   --space-xl: 2rem;
-  /* Extra large spacing */
 
-  /* Typography Sizes */
+  /* Typography */
   --text-base: 1rem;
-  /* Base font size */
   --text-sm: 0.875rem;
-  /* Small text */
   --text-lg: 1.125rem;
-  /* Large text */
   --text-xl: 1.25rem;
-  /* Extra large text */
   --text-2xl: 1.5rem;
-  /* Double extra large text */
   --text-3xl: 1.875rem;
-  /* Triple extra large text */
 }
 
-/* ============================= */
-/*         GLOBAL RESET         */
-/* ============================= */
-
-/* Reset box model and spacing */
+/* Base Reset */
 *,
 *::before,
 *::after {
@@ -87,74 +50,33 @@
   padding: 0;
 }
 
-/* Set base behavior for root element */
 html {
   scroll-behavior: smooth;
-  /* Enable smooth scrolling */
   -webkit-text-size-adjust: 100%;
-  /* Prevent font scaling on iOS */
   text-size-adjust: 100%;
-  /* Prevent font scaling on modern browsers */
   height: 100%;
-  /* Full height for layout control */
-  overscroll-behavior: none;
-  /* Prevent scroll chaining/jumping */
-  backface-visibility: hidden;
-  /* GPU acceleration to reduce flicker */
-  transform: translateZ(0);
-  /* Trigger hardware acceleration */
-  will-change: scroll-position;
-  /* Hint browser to optimize scroll */
-  overflow-x: hidden;
-  /* Prevent horizontal scroll */
 }
 
-/* Body layout and appearance */
 body {
   min-height: 100vh;
-  /* Ensure full viewport height */
   min-height: 100dvh;
-  /* Support for dynamic viewport units */
   font-family: var(--font-verdana);
-  /* Set global font */
   color: var(--color-text);
-  /* Use theme text color */
   background-color: var(--light-grey);
-  /* Light grey background */
   text-rendering: optimizeLegibility;
-  /* Improve font rendering */
   -webkit-font-smoothing: antialiased;
-  /* Smooth fonts in WebKit */
   -moz-osx-font-smoothing: grayscale;
-  /* Smooth fonts on macOS */
   display: flex;
-  /* Flex layout for vertical alignment */
   flex-direction: column;
-  /* Stack children vertically */
   align-items: center;
-  /* Center items horizontally */
   margin: 0;
-  /* Remove default margin */
   padding: 0;
-  /* Remove default padding */
-  -webkit-overflow-scrolling: touch;
-  /* Enable momentum scroll on iOS */
-  backface-visibility: hidden;
-  /* Prevent flickering during scroll */
-  transform: translateZ(0);
-  /* Trigger GPU acceleration */
-  will-change: transform, scroll-position;
-  /* Performance optimization */
 }
 
-/* ============================= */
-/*     INTERACTION CLEANUP      */
-/* ============================= */
 
-/* Disable tap highlight on touch devices for buttons */
+/* Disable blue highlight on button click */
 button {
   -webkit-tap-highlight-color: transparent;
-  /* Remove blue tap highlight on iOS */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  /* Fallback for older versions */
 }
+

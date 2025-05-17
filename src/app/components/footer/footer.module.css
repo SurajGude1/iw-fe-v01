@@ -5,7 +5,6 @@
   /* Remove original border styles */
   border-top: none;
   box-shadow: none;
-  border: 2px solid red;
 }
 
 /* Creates the tapered charcoal border (bottom layer) */
@@ -214,7 +213,6 @@
   .LinksContainer {
     flex-direction: column;
     padding: 2rem 20px;
-    align-items: center;
   }
 
   .AboutSection,
@@ -223,8 +221,6 @@
     flex: 1 1 100%;
     padding: 0;
     margin-bottom: 2.5rem;
-    align-items: center;
-    text-align: center;
   }
 
   .SubscribeSection {
