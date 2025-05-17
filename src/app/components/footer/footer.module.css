@@ -221,6 +221,14 @@
     flex: 1 1 100%;
     padding: 0;
     margin-bottom: 2.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .AboutText,
+  .SubscribeText,
+  .ContactInfo {
+    text-align: center;
   }
 
   .SubscribeSection {

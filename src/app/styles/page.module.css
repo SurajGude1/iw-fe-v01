@@ -20,6 +20,7 @@
 @media (max-width: 480px) {
   .MainWrapper {
     width: 100%;
+    height: auto;
     margin-top: 0;
     border-radius: 0;
     padding-left: 0rem;
