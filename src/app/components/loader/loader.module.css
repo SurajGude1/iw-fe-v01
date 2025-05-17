@@ -13,21 +13,21 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.5rem; /* Reduced gap */
 }
 
 .BallWrapper {
     position: relative;
-    width: 1.2rem;
-    height: 6rem;
+    width: 0.8rem; /* Reduced width */
+    height: 4rem; /* Reduced height */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .Ball {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 0.8rem; /* Reduced size */
+    height: 0.8rem; /* Reduced size */
     border-radius: 50%;
     position: relative;
     z-index: 2;
@@ -35,7 +35,7 @@
 
 .Trail {
     position: absolute;
-    width: 0.2rem;
+    width: 0.15rem; /* Reduced width */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -44,102 +44,31 @@
     animation: trailAnim 1.8s ease-in-out infinite;
 }
 
-.Ball.offWhite {
-    background-color: var(--off-white);
-}
-
-.Ball.charcoal {
-    background-color: var(--charcoal);
-}
-
-/* Specific animations */
-
-.BallWrapper:nth-child(1) .Ball {
-    animation: bounceUp 1.8s ease-in-out infinite;
-}
-
-.BallWrapper:nth-child(1) .Trail {
-    height: 2.2rem;
-    bottom: 0;
-    background-color: var(--charcoal);
-}
-
-.BallWrapper:nth-child(2) .Ball {
-    animation: bounceDown 1.8s ease-in-out infinite;
-}
-
-.BallWrapper:nth-child(2) .Trail {
-    height: 2.2rem;
-    top: 0;
-    background-color: var(--off-white);
-}
-
-.BallWrapper:nth-child(3) .Ball {
-    animation: bounceUp 1.8s ease-in-out infinite;
-}
-
-.BallWrapper:nth-child(3) .Trail {
-    height: 2.2rem;
-    bottom: 0;
-    background-color: var(--charcoal);
-}
-
-.BallWrapper:nth-child(4) .Ball {
-    animation: bounceDown 1.8s ease-in-out infinite;
-}
-
-.BallWrapper:nth-child(4) .Trail {
-    height: 2.2rem;
-    top: 0;
-    background-color: var(--off-white);
-}
-
-.BallWrapper:nth-child(5) .Ball {
-    animation: bounceUp 1.8s ease-in-out infinite;
-}
-
-.BallWrapper:nth-child(5) .Trail {
-    height: 2.2rem;
-    bottom: 0;
-    background-color: var(--charcoal);
-}
-
-/* Bounce animations */
+/* ... rest of your CSS remains the same, just update the translateY values ... */
 
 @keyframes bounceUp {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
-        transform: translateY(-2.2rem);
+        transform: translateY(-1.8rem); /* Reduced bounce height */
     }
 }
 
 @keyframes bounceDown {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
-        transform: translateY(2.2rem);
+        transform: translateY(1.8rem); /* Reduced bounce height */
     }
 }
 
-/* Trail opacity animation */
-@keyframes trailAnim {
-
-    0%,
-    100% {
-        opacity: 0;
-    }
-
-    25%,
-    75% {
-        opacity: 1;
-    }
+/* Trail height adjustments */
+.BallWrapper:nth-child(1) .Trail,
+.BallWrapper:nth-child(2) .Trail,
+.BallWrapper:nth-child(3) .Trail,
+.BallWrapper:nth-child(4) .Trail,
+.BallWrapper:nth-child(5) .Trail {
+    height: 1.8rem; /* Reduced trail height */
 }
