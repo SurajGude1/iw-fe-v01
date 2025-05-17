@@ -1,7 +1,7 @@
 .LoaderWrapper {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
     z-index: 9999;
     display: flex;
     align-items: center;
@@ -13,21 +13,26 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 1.5rem; /* Reduced gap */
+    gap: 1.5rem;
+    /* Reduced gap */
 }
 
 .BallWrapper {
     position: relative;
-    width: 0.8rem; /* Reduced width */
-    height: 4rem; /* Reduced height */
+    width: 0.8rem;
+    /* Reduced width */
+    height: 4rem;
+    /* Reduced height */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .Ball {
-    width: 0.8rem; /* Reduced size */
-    height: 0.8rem; /* Reduced size */
+    width: 0.8rem;
+    /* Reduced size */
+    height: 0.8rem;
+    /* Reduced size */
     border-radius: 50%;
     position: relative;
     z-index: 2;
@@ -35,7 +40,8 @@
 
 .Trail {
     position: absolute;
-    width: 0.15rem; /* Reduced width */
+    width: 0.15rem;
+    /* Reduced width */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -47,20 +53,28 @@
 /* ... rest of your CSS remains the same, just update the translateY values ... */
 
 @keyframes bounceUp {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
-        transform: translateY(-1.8rem); /* Reduced bounce height */
+        transform: translateY(-1.8rem);
+        /* Reduced bounce height */
     }
 }
 
 @keyframes bounceDown {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
-        transform: translateY(1.8rem); /* Reduced bounce height */
+        transform: translateY(1.8rem);
+        /* Reduced bounce height */
     }
 }
 
@@ -70,5 +84,6 @@
 .BallWrapper:nth-child(3) .Trail,
 .BallWrapper:nth-child(4) .Trail,
 .BallWrapper:nth-child(5) .Trail {
-    height: 1.8rem; /* Reduced trail height */
+    height: 1.8rem;
+    /* Reduced trail height */
 }
