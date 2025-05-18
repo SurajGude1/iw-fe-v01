@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
-import Input from "../inputs/input";
 import Button from "../buttons/button";
-import styles from "./sign-in.module.css";
 import { TextField, Button as MuiButton, Divider } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import GlobalForm from "./forms.module.css"
+import { Global } from "@emotion/react";
 
 export default function SignIn({ onClose }) {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -50,16 +50,16 @@ export default function SignIn({ onClose }) {
   if (!isMounted) return null;
 
   return (
-    <div className={styles.Overlay} onClick={onClose}>
-      <div className={styles.Modal} onClick={(e) => e.stopPropagation()}>
+    <div className={GlobalForm.Overlay} onClick={onClose}>
+      <div className={GlobalForm.Modal} onClick={(e) => e.stopPropagation()}>
         {/* Close Button */}
         <button
           onClick={onClose}
-          className={styles.CloseButton}
+          className={GlobalForm.CloseButton}
           aria-label="Close sign in form"
         >
           <svg
-            className={styles.CloseIcon}
+            className={GlobalForm.CloseIcon}
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -75,18 +75,19 @@ export default function SignIn({ onClose }) {
         </button>
 
         {/* Form Container */}
-        <div className={styles.FormContainer}>
-          <h1 className={styles.FormTitle}>
+
+        <div className={GlobalForm.FormContainer}>
+          <h1 className={GlobalForm.FormTitle}>
             {showForgotPassword
               ? "Reset Password"
               : isSignIn
-              ? "Welcome Back"
-              : "Create Account"}
+                ? "Welcome Back"
+                : "Create Account"}
           </h1>
 
           {/* Social Login Buttons - Only shown on sign in and not in forgot password */}
           {isSignIn && !showForgotPassword && (
-            <div className={styles.SocialLoginContainer}>
+            <div className={GlobalForm.SocialLoginContainer}>
               <MuiButton
                 fullWidth
                 variant="outlined"
@@ -107,7 +108,7 @@ export default function SignIn({ onClose }) {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className={styles.Form}>
+          <form onSubmit={handleSubmit} className={Global.Form}>
             {showForgotPassword ? (
               <>
                 {currentStep === 1 && (
@@ -168,19 +169,19 @@ export default function SignIn({ onClose }) {
                   </>
                 )}
 
-                <div className={styles.ButtonContainer}>
+                <div className={GlobalForm.ButtonContainer}>
                   <Button
                     type="submit"
                     text={
                       currentStep === 1
                         ? "Send OTP"
                         : currentStep === 2
-                        ? "Verify OTP"
-                        : "Reset Password"
+                          ? "Verify OTP"
+                          : "Reset Password"
                     }
                     backgroundColor="#333333"
                     textColor="#ffffff"
-                    className={styles.SubmitButton}
+                    className={GlobalForm.SubmitButton}
                   />
                 </div>
               </>
@@ -240,24 +241,24 @@ export default function SignIn({ onClose }) {
             )}
 
             {!showForgotPassword && (
-              <div className={styles.ButtonContainer}>
+              <div className={GlobalForm.ButtonContainer}>
                 <Button
                   type="submit"
                   text={isSignIn ? "Sign In" : "Create Account"}
                   backgroundColor="#333333"
                   textColor="#ffffff"
-                  className={styles.SubmitButton}
+                  className={GlobalForm.SubmitButton}
                 />
               </div>
             )}
           </form>
 
           {/* Form Footer Links */}
-          <div className={styles.LinkContainer}>
+          <div className={GlobalForm.LinkContainer}>
             {showForgotPassword ? (
               <button
                 type="button"
-                className={styles.LinkButton}
+                className={GlobalForm.LinkButton}
                 onClick={handleBackToSignIn}
               >
                 Back to Sign In
@@ -266,14 +267,14 @@ export default function SignIn({ onClose }) {
               <>
                 <button
                   type="button"
-                  className={styles.LinkButton}
+                  className={GlobalForm.LinkButton}
                   onClick={() => setIsSignIn(false)}
                 >
                   Create new account
                 </button>
                 <button
                   type="button"
-                  className={styles.LinkButton}
+                  className={GlobalForm.LinkButton}
                   onClick={() => setShowForgotPassword(true)}
                 >
                   Forgot password?
@@ -282,7 +283,7 @@ export default function SignIn({ onClose }) {
             ) : (
               <button
                 type="button"
-                className={styles.LinkButton}
+                className={GlobalForm.LinkButton}
                 onClick={() => setIsSignIn(true)}
               >
                 Already have an account? Sign in
@@ -294,3 +295,4 @@ export default function SignIn({ onClose }) {
     </div>
   );
 }
+

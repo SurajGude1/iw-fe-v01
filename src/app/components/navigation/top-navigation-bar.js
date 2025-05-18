@@ -10,6 +10,7 @@ import SignIn from "../global/forms/sign-in";
 import EarnForm from "../global/forms/earn";
 import ContactForm from "../global/forms/contact";
 import Drawer from "./drawer";
+import CustomizedToggleSwitch from "../global/buttons/switch/toggle";
 
 config.autoAddCss = false;
 

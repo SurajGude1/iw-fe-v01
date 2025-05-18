@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import Button from "../buttons/button";
 import FileUpload from "../inputs/file-upload";
-import styles from "./earn.module.css";
+import GlobalForm from "./forms.module.css"
 
 export default function EarnForm({ onClose }) {
   const [formData, setFormData] = useState({
@@ -46,15 +46,15 @@ export default function EarnForm({ onClose }) {
   };
 
   return (
-    <div className={styles.Overlay} onClick={onClose}>
-      <div className={styles.Modal} onClick={(e) => e.stopPropagation()}>
+    <div className={GlobalForm.Overlay} onClick={onClose}>
+      <div className={GlobalForm.Modal} onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
-          className={styles.CloseButton}
+          className={GlobalForm.CloseButton}
           aria-label="Close sign in form"
         >
           <svg
-            className={styles.CloseIcon}
+            className={GlobalForm.CloseIcon}
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -69,10 +69,10 @@ export default function EarnForm({ onClose }) {
           </svg>
         </button>
 
-        <form onSubmit={handleSubmit} className={styles.Form}>
-          <h2 className={styles.Title}>Join us</h2>
+        <form onSubmit={handleSubmit} className={GlobalForm.Form}>
+          <h2 className={GlobalForm.FormTitle}>Join us</h2>
 
-          <div className={styles.ScrollContainer}>
+          <div className={GlobalForm.ScrollContainer}>
             <TextField
               id="name"
               name="name"
@@ -166,9 +166,9 @@ export default function EarnForm({ onClose }) {
               }}
             />
 
-            <div className={styles.CheckboxGroup}>
-              <p className={styles.CheckboxTitle}>Interested Fields</p>
-              <div className={styles.CheckboxOptions}>
+            <div className={GlobalForm.CheckboxGroup}>
+              <p className={GlobalForm.CheckboxTitle}>Interested Fields</p>
+              <div className={GlobalForm.CheckboxOptions}>
                 {interestOptions.map((opt) => (
                   <FormControlLabel
                     key={opt}
@@ -187,13 +187,13 @@ export default function EarnForm({ onClose }) {
             </div>
           </div>
 
-          <div className={styles.ButtonWrapper}>
+          <div className={GlobalForm.ButtonWrapper}>
             <Button
               type="submit"
               text="Submit Application"
               backgroundColor="var(--rich-black)"
               textColor="#ffffff"
-              className={styles.SubmitButton}
+              className={GlobalForm.SubmitButton}
             />
           </div>
         </form>
@@ -201,3 +201,5 @@ export default function EarnForm({ onClose }) {
     </div>
   );
 }
+
+

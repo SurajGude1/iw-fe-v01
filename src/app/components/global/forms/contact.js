@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { TextField, Button as MuiButton, MenuItem } from "@mui/material";
 import Button from "../buttons/button";
-import styles from "./contact.module.css";
+import GlobalForm from "./forms.module.css"
 
 export default function ContactForm({ onClose }) {
   const [formData, setFormData] = useState({
@@ -31,10 +31,10 @@ export default function ContactForm({ onClose }) {
   };
 
   return (
-    <div className={styles.Overlay} onClick={onClose}>
-      <div className={styles.Modal} onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className={styles.CloseButton}>
-          <svg className={styles.CloseIcon} viewBox="0 0 24 24">
+    <div className={GlobalForm.Overlay} onClick={onClose}>
+      <div className={GlobalForm.Modal} onClick={(e) => e.stopPropagation()}>
+        <button onClick={onClose} className={GlobalForm.CloseButton}>
+          <svg className={GlobalForm.CloseIcon} viewBox="0 0 24 24">
             <path
               d="M18 6L6 18M6 6l12 12"
               stroke="currentColor"
@@ -43,10 +43,10 @@ export default function ContactForm({ onClose }) {
           </svg>
         </button>
 
-        <form onSubmit={handleSubmit} className={styles.Form}>
-          <h2 className={styles.Title}>Contact Us</h2>
+        <form onSubmit={handleSubmit} className={GlobalForm.Form}>
+          <h2 className={GlobalForm.FormTitle}>Contact Us</h2>
 
-          <div className={styles.ScrollContainer}>
+          <div className={GlobalForm.ScrollContainer}>
             <TextField
               id="name"
               name="name"
@@ -124,13 +124,13 @@ export default function ContactForm({ onClose }) {
             />
           </div>
 
-          <div className={styles.ButtonWrapper}>
+          <div className={GlobalForm.ButtonWrapper}>
             <Button
               type="submit"
               text="Send Message"
               backgroundColor="var(--rich-black)"
               textColor="#ffffff"
-              className={styles.SubmitButton}
+              className={GlobalForm.SubmitButton}
             />
           </div>
         </form>
