@@ -17,21 +17,13 @@ import SignIn from "../global/forms/sign-in";
 const Drawer = ({ isOpen, onClose }) => {
   const [showEarnForm, setShowEarnForm] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
-  const [showSignIn, setshowSignIn] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
 
-  const handleEarnClick = () => {
-    setShowEarnForm(true);
+  const handleOpenModal = (type) => {
     onClose();
-  };
-
-  const handleContactClick = () => {
-    setShowContactForm(true);
-    onClose();
-  };
-
-  const handleSignInClick = () => {
-    setshowSignIn(true);
-    onClose();
+    if (type === "earn") setShowEarnForm(true);
+    else if (type === "contact") setShowContactForm(true);
+    else if (type === "signin") setShowSignIn(true);
   };
 
   return (
@@ -54,7 +46,7 @@ const Drawer = ({ isOpen, onClose }) => {
               className={styles.DrawerItem}
               onClick={(e) => {
                 e.preventDefault();
-                handleSignInClick();
+                handleOpenModal("signin");
               }}
             >
               <FontAwesomeIcon icon={faUserPlus} />
@@ -65,7 +57,7 @@ const Drawer = ({ isOpen, onClose }) => {
               className={styles.DrawerItem}
               onClick={(e) => {
                 e.preventDefault();
-                handleEarnClick();
+                handleOpenModal("earn");
               }}
             >
               <FontAwesomeIcon icon={faCoins} />
@@ -84,7 +76,7 @@ const Drawer = ({ isOpen, onClose }) => {
               className={styles.DrawerItem}
               onClick={(e) => {
                 e.preventDefault();
-                handleContactClick();
+                handleOpenModal("contact");
               }}
             >
               <FontAwesomeIcon icon={faIdCardClip} />
@@ -97,14 +89,12 @@ const Drawer = ({ isOpen, onClose }) => {
           </nav>
         </div>
       </div>
-      {/* Earn Modal */}
+
       {showEarnForm && <EarnForm onClose={() => setShowEarnForm(false)} />}
-      {/* Contact Modal */}
       {showContactForm && (
         <ContactForm onClose={() => setShowContactForm(false)} />
       )}
-      {/* Sign-in Modal */}
-      {showSignIn && <SignIn onClose={() => setshowSignIn(false)} />}
+      {showSignIn && <SignIn onClose={() => setShowSignIn(false)} />}
     </>
   );
 };

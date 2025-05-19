@@ -23,7 +23,7 @@ export default function Hero() {
             prev === cardData.length - 1 ? 0 : prev + 1
           );
           setIsAnimating(false);
-        }, 1100);
+        }, 1000); // Matches animation duration
       }, 10000);
     }
 
@@ -47,7 +47,11 @@ export default function Hero() {
         onMouseEnter={handleHover}
         onMouseLeave={handleHoverEnd}
       >
-        <div className={isAnimating ? styles.CardSlide : styles.CardContent}>
+        <div className={styles.CardContent}>
+          {/* Curtain overlay */}
+          <div className={`${styles.Curtain} ${isAnimating ? styles.curtainClose : ''}`}></div>
+
+          {/* Card content */}
           <div className={styles.TopSection}>
             <div className={styles.AuthorSection}>
               <span className={styles.AuthorName}>{currentCard.author}</span>
@@ -91,7 +95,10 @@ export default function Hero() {
         onMouseEnter={handleHover}
         onMouseLeave={handleHoverEnd}
       >
-        <div className={isAnimating ? styles.SummaryFade : styles.SummaryContentContainer}>
+        <div className={styles.SummaryContentContainer}>
+          {/* Curtain overlay */}
+          <div className={`${styles.Curtain} ${isAnimating ? styles.curtainClose : ''}`}></div>
+
           <h2 className={styles.SummaryTitle}>{currentCard.title}</h2>
           <div className={styles.SummaryContent}>
             <p>{currentCard.cardSummary}</p>
@@ -107,7 +114,7 @@ export default function Hero() {
         </div>
       </summary>
 
-      {/* Video Ads (Right) */}
+      {/* Video Ads (Right) - Narrower width */}
       <div className={styles.VideoAds}>
         <h3 className={styles.SummaryTitle}>Featured</h3>
         <div className={styles.VideoContainer}>

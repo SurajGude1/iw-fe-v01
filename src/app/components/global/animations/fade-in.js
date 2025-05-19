@@ -1,28 +1,42 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
-import styles from "./fade-in.module.css"; // or inline CSS if preferred
+
+import { useRef, useEffect, useState, useCallback } from "react";
+import styles from "./fade-in.module.css";
 
 export default function FadeInSection({ children }) {
-    const domRef = useRef();
-    const [isVisible, setVisible] = useState(false);
+    const domRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    const handleIntersection = useCallback((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setIsVisible(true);
+            }
+        });
+    }, []);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => setVisible(entry.isIntersecting));
-            },
-            { threshold: 0.1 }
-        );
+        const observer = new IntersectionObserver(handleIntersection, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -10% 0px", // Optional: fine-tunes reveal timing
+        });
 
         const node = domRef.current;
         if (node) observer.observe(node);
-        return () => node && observer.unobserve(node);
-    }, []);
+
+        return () => {
+            if (node) observer.unobserve(node);
+            observer.disconnect();
+        };
+    }, [handleIntersection]);
 
     return (
         <div
             ref={domRef}
-            className={`${styles["fade-in-section"]} ${isVisible ? styles["is-visible"] : ""}`}
+            className={[
+                styles["fade-in-section"],
+                isVisible ? styles["is-visible"] : "",
+            ].join(" ")}
         >
             {children}
         </div>

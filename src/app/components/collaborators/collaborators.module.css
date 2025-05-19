@@ -6,6 +6,7 @@
   overflow: hidden;
   background: transparent;
   margin: 2rem 0;
+  border: 2px solid violet;
 }
 
 /* Gradient fade effects */

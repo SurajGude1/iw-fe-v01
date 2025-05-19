@@ -34,6 +34,9 @@
   font-size: 1.8rem;
   cursor: pointer;
   display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 /* Show hamburger only on mobile */

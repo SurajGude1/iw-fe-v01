@@ -1,6 +1,7 @@
 .Hero {
   display: grid;
-  grid-template-columns: minmax(280px, 320px) minmax(450px, 2fr) minmax(220px, 260px);
+  grid-template-columns: minmax(280px, 320px) minmax(450px, 2fr) 220px;
+  /* Reduced video ads width */
   gap: 2rem;
   padding: 4.8rem 1rem;
   justify-content: center;
@@ -19,6 +20,7 @@
   box-shadow: 0 1px 6px var(--verdigris);
   height: 460px;
   overflow: hidden;
+  position: relative;
 }
 
 .CardContent {
@@ -26,14 +28,26 @@
   flex-direction: column;
   height: 100%;
   padding: 1rem;
+  position: relative;
 }
 
-.CardSlide {
-  animation: slideInRight 0.8s ease-out forwards;
-  display: flex;
-  flex-direction: column;
+/* Curtain animation styles */
+.Curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  padding: 1rem;
+  background: var(--rich-black);
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1s ease;
+}
+
+.curtainClose {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .TopSection {
@@ -92,8 +106,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   min-height: 2.8em;
-
-  /* Smoothly hide the half line with fade effect */
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
@@ -135,7 +147,6 @@
 .Summary {
   width: 100%;
   border-radius: 8px;
-  padding: 1.5rem;
   height: 460px;
   background: var(--rich-black);
   color: var(--off-white);
@@ -146,13 +157,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.SummaryFade {
-  animation: fadeIn 1.2s ease-in forwards;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  position: relative;
 }
 
 .SummaryTitle {
@@ -172,9 +177,7 @@
   flex: 1;
   overflow: hidden;
   position: relative;
-  margin-bottom: 1.5rem;
-
-  /* Smoothly hide the half line with fade effect */
+  margin-bottom: 3.5rem;
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
@@ -199,9 +202,10 @@
   padding-bottom: 0;
 }
 
-/* VIDEO ADS STYLES */
+/* VIDEO ADS STYLES - Narrower version */
 .VideoAds {
-  width: 100%;
+  width: 220px;
+  /* Fixed width */
   border-radius: 8px;
   background: var(--rich-black);
   padding: 1.2rem;
@@ -225,34 +229,16 @@
   border-radius: 4px;
 }
 
-/* ANIMATIONS */
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 /* RESPONSIVE STYLES */
 @media (max-width: 1200px) {
   .Hero {
     grid-template-columns: 1fr;
     justify-items: center;
+  }
+
+  .VideoAds {
+    width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -262,23 +248,12 @@
     gap: 1.5rem;
   }
 
-  .Summary {
-    box-shadow: 0 1px 6px var(--charcoal);
+  .Summary{
+    /* text-align: center; */
+    padding: 0.2rem;
   }
 
   .VideoAds {
     display: none;
-  }
-
-  .VideoContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-
-  .VideoContainer video {
-    width: 100%;
-    min-width: 240px;
-    height: 180px;
   }
 }

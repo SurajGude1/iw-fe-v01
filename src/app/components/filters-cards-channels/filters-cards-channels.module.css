@@ -6,6 +6,7 @@
     background: var(--rich-black);
     color: var(--off-white);
     flex-wrap: wrap;
+    border: 2px solid magenta;
 }
 
 .SocialCardsMain {
