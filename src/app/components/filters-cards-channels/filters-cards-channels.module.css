@@ -182,7 +182,7 @@
     color: var(--off-white);
     margin-bottom: 0.6rem;
     font-size: 0.8rem;
-    opacity: 0.8;
+    opacity: 0.9;
     line-height: 1.4;
     flex-grow: 1;
     display: -webkit-box;
@@ -202,12 +202,11 @@
 }
 
 .SocialCardKnowMore {
-    color: var(--bone-white);
+    color: var(--light-grey);
     text-decoration: none;
     font-size: 0.7rem;
-    border-bottom: 1px solid var(--bone-white);
+    border-bottom: 1px solid var(--light-grey);
     padding-bottom: 1px;
-    transition: opacity 0.4s ease;
 }
 
 .SocialCardViews {

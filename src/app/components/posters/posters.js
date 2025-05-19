@@ -70,7 +70,7 @@ export default function Posters() {
 
   return (
     <div className={styles.PostersWrapper}>
-      <p className={styles.SectionTitle}>Top picks for today</p>
+      <p className={styles.SectionTitle}>Trending now</p>
 
       {posterChunks.map((chunk, index) => (
         <div key={`carousel-${index}`} className={styles.CarouselContainer}>

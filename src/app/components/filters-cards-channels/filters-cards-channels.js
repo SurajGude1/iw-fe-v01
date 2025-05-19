@@ -61,7 +61,7 @@ export default function SocialCards() {
     <ThemeProvider theme={theme}>
       <div className={styles.SocialCardsContainer}>
         <main className={styles.SocialCardsMain} ref={mainRef}>
-          <p className={styles.SectionTitle}>Read, Discover & Enjoy</p>
+          <p className={styles.SectionTitle}>Discover more</p>
 
           <div className={styles.SocialCardsSearchContainer}>
             <FormControl fullWidth variant="standard" className={styles.SearchInputWrapper}>
