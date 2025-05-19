@@ -34,7 +34,7 @@ export default function UserReviews() {
       className={`${styles.UserReviewsSection} ${isVisible ? styles.Animate : styles.Pause}`}
       aria-label="Customer testimonials"
     >
-      <h2 className={styles.SectionTitle}>Voices of Our Community</h2>
+      <h2 className={styles.SectionTitle}>Shared experiences</h2>
       <div className={styles.CarouselWrapper}>
         <div className={styles.CarouselTrack}>
           {scrollingReviews.map((review, index) => (
