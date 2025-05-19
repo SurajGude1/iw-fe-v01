@@ -1,49 +1,88 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useCallback, useMemo } from "react";
 import {
   TextField,
-  Button as MuiButton,
   MenuItem,
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
 import Button from "../buttons/button";
-import FileUpload from "../inputs/file-upload";
-import GlobalForm from "./forms.module.css"
+import GlobalForm from "./forms.module.css";
+
+const experienceOptions = ["1-3 years", "3-5 years", "5+ years"];
+const interestOptions = ["Political", "Health", "Social", "Women", "Crime"];
 
 export default function EarnForm({ onClose }) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(() => ({
     name: "",
     email: "",
     dob: "",
     experience: "",
     workLink: "",
     interests: [],
-  });
+  }));
 
   const [file, setFile] = useState(null);
 
-  const experienceOptions = ["1-3 years", "3-5 years", "5+ years"];
-  const interestOptions = ["Political", "Health", "Social", "Women", "Crime"];
-
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
-    if (type === "checkbox") {
-      setFormData((prev) => ({
-        ...prev,
-        interests: checked
-          ? [...prev.interests, value]
-          : prev.interests.filter((item) => item !== value),
-      }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-  };
 
-  const handleSubmit = (e) => {
+    setFormData((prev) => {
+      if (type === "checkbox") {
+        const updatedInterests = checked
+          ? [...prev.interests, value]
+          : prev.interests.filter((item) => item !== value);
+        return { ...prev, interests: updatedInterests };
+      }
+      return { ...prev, [name]: value };
+    });
+  }, []);
+
+  const handleFileChange = useCallback((e) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      const validTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/plain",
+        "image/jpeg",
+        "image/png",
+      ];
+      if (validTypes.includes(selectedFile.type)) {
+        setFile(selectedFile);
+      } else {
+        alert("Unsupported file type.");
+      }
+    }
+  }, []);
+
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     console.log({ ...formData, file });
-  };
+    // Here you'd send this data via fetch/Axios to the backend.
+  }, [formData, file]);
+
+  const interestCheckboxes = useMemo(
+    () =>
+      interestOptions.map((opt) => (
+        <FormControlLabel
+          key={opt}
+          control={
+            <Checkbox
+              checked={formData.interests.includes(opt)}
+              onChange={handleChange}
+              value={opt}
+              name="interests"
+              inputProps={{ "aria-label": opt }}
+            />
+          }
+          label={opt}
+        />
+      )),
+    [formData.interests, handleChange]
+  );
 
   return (
     <div className={GlobalForm.Overlay} onClick={onClose}>
@@ -58,6 +97,7 @@ export default function EarnForm({ onClose }) {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
               d="M18 6L6 18M6 6l12 12"
@@ -69,7 +109,7 @@ export default function EarnForm({ onClose }) {
           </svg>
         </button>
 
-        <form onSubmit={handleSubmit} className={GlobalForm.Form}>
+        <form onSubmit={handleSubmit} className={GlobalForm.Form} noValidate>
           <h2 className={GlobalForm.FormTitle}>Join us</h2>
 
           <div className={GlobalForm.ScrollContainer}>
@@ -83,9 +123,7 @@ export default function EarnForm({ onClose }) {
               required
               fullWidth
               margin="normal"
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={{ "& .MuiInputBase-root": { height: 48 } }}
             />
 
             <TextField
@@ -99,9 +137,7 @@ export default function EarnForm({ onClose }) {
               required
               fullWidth
               margin="normal"
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={{ "& .MuiInputBase-root": { height: 48 } }}
             />
 
             <TextField
@@ -116,9 +152,7 @@ export default function EarnForm({ onClose }) {
               fullWidth
               margin="normal"
               InputLabelProps={{ shrink: true }}
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={{ "& .MuiInputBase-root": { height: 48 } }}
             />
 
             <TextField
@@ -132,9 +166,7 @@ export default function EarnForm({ onClose }) {
               fullWidth
               margin="normal"
               select
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={{ "& .MuiInputBase-root": { height: 48 } }}
             >
               <MenuItem value="">
                 <em>Select experience</em>
@@ -146,9 +178,31 @@ export default function EarnForm({ onClose }) {
               ))}
             </TextField>
 
-            <FileUpload
-              onFileSelect={setFile}
-              accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
+            <TextField
+              id="file"
+              name="file"
+              type="file"
+              variant="outlined"
+              label="Upload Resume"
+              fullWidth
+              required
+              margin="normal"
+              inputProps={{
+                accept: ".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png",
+                "aria-label": "Upload Resume",
+              }}
+              onChange={handleFileChange}
+              InputLabelProps={{ shrink: true }}
+              sx={{
+                "& .MuiInputBase-root": {
+                  height: 48,
+                  display: "flex",
+                  alignItems: "center",
+                },
+                "& input": {
+                  padding: "10px 14px",
+                },
+              }}
             />
 
             <TextField
@@ -161,28 +215,13 @@ export default function EarnForm({ onClose }) {
               onChange={handleChange}
               fullWidth
               margin="normal"
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={{ "& .MuiInputBase-root": { height: 48 } }}
             />
 
             <div className={GlobalForm.CheckboxGroup}>
               <p className={GlobalForm.CheckboxTitle}>Interested Fields</p>
               <div className={GlobalForm.CheckboxOptions}>
-                {interestOptions.map((opt) => (
-                  <FormControlLabel
-                    key={opt}
-                    control={
-                      <Checkbox
-                        checked={formData.interests.includes(opt)}
-                        onChange={handleChange}
-                        value={opt}
-                        name="interests"
-                      />
-                    }
-                    label={opt}
-                  />
-                ))}
+                {interestCheckboxes}
               </div>
             </div>
           </div>
@@ -201,5 +240,3 @@ export default function EarnForm({ onClose }) {
     </div>
   );
 }
-
-

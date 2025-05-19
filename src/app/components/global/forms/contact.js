@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
-import { TextField, Button as MuiButton, MenuItem } from "@mui/material";
+
+import { useState, useCallback, useMemo } from "react";
+import { TextField, MenuItem } from "@mui/material";
 import Button from "../buttons/button";
-import GlobalForm from "./forms.module.css"
+import GlobalForm from "./forms.module.css";
 
 export default function ContactForm({ onClose }) {
   const [formData, setFormData] = useState({
@@ -12,29 +13,75 @@ export default function ContactForm({ onClose }) {
     message: "",
   });
 
-  const purposeOptions = [
-    "Advertisements",
-    "Promotions",
-    "Content",
-    "General Inquiry",
-  ];
+  const purposeOptions = useMemo(
+    () => ["Advertisements", "Promotions", "Content", "General Inquiry"],
+    []
+  );
 
-  const handleChange = (e) => {
+  const inputStyles = useMemo(
+    () => ({
+      "& .MuiInputBase-root": { height: 48 },
+    }),
+    []
+  );
+
+  const messageStyles = useMemo(
+    () => ({
+      "& .MuiInputBase-root": {
+        height: "auto",
+        minHeight: "120px",
+      },
+    }),
+    []
+  );
+
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Add your form submission logic here
-  };
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      // Basic front-end validation
+      if (!formData.name || !formData.email || !formData.purpose || !formData.message) {
+        alert("All fields are required.");
+        return;
+      }
+
+      // Sanitize data (basic client-side)
+      const sanitizedData = {
+        ...formData,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        purpose: formData.purpose.trim(),
+        message: formData.message.trim(),
+      };
+
+      console.log("Submitting form:", sanitizedData);
+
+      // Submit logic here (e.g., fetch/axios POST)
+    },
+    [formData]
+  );
+
+  const stopPropagation = useCallback((e) => e.stopPropagation(), []);
 
   return (
     <div className={GlobalForm.Overlay} onClick={onClose}>
-      <div className={GlobalForm.Modal} onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className={GlobalForm.CloseButton}>
-          <svg className={GlobalForm.CloseIcon} viewBox="0 0 24 24">
+      <div className={GlobalForm.Modal} onClick={stopPropagation}>
+        <button
+          onClick={onClose}
+          className={GlobalForm.CloseButton}
+          aria-label="Close contact form"
+        >
+          <svg
+            className={GlobalForm.CloseIcon}
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
             <path
               d="M18 6L6 18M6 6l12 12"
               stroke="currentColor"
@@ -43,7 +90,7 @@ export default function ContactForm({ onClose }) {
           </svg>
         </button>
 
-        <form onSubmit={handleSubmit} className={GlobalForm.Form}>
+        <form onSubmit={handleSubmit} className={GlobalForm.Form} noValidate>
           <h2 className={GlobalForm.FormTitle}>Contact Us</h2>
 
           <div className={GlobalForm.ScrollContainer}>
@@ -52,14 +99,13 @@ export default function ContactForm({ onClose }) {
               name="name"
               label="Full Name"
               variant="outlined"
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               required
               fullWidth
               margin="normal"
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={inputStyles}
             />
 
             <TextField
@@ -68,14 +114,13 @@ export default function ContactForm({ onClose }) {
               label="Email Address"
               variant="outlined"
               type="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
               fullWidth
               margin="normal"
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={inputStyles}
             />
 
             <TextField
@@ -89,9 +134,7 @@ export default function ContactForm({ onClose }) {
               fullWidth
               margin="normal"
               select
-              sx={{
-                "& .MuiInputBase-root": { height: 48 },
-              }}
+              sx={inputStyles}
             >
               <MenuItem value="">
                 <em>Select purpose</em>
@@ -115,12 +158,8 @@ export default function ContactForm({ onClose }) {
               margin="normal"
               multiline
               rows={5}
-              sx={{
-                "& .MuiInputBase-root": {
-                  height: "auto",
-                  minHeight: "120px",
-                },
-              }}
+              autoComplete="off"
+              sx={messageStyles}
             />
           </div>
 
