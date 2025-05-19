@@ -177,7 +177,7 @@
   flex: 1;
   overflow: hidden;
   position: relative;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.8rem;
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
@@ -248,9 +248,10 @@
     gap: 1.5rem;
   }
 
-  .Summary{
-    /* text-align: center; */
-    padding: 0.2rem;
+  .Summary {
+    padding: 1.4rem;
+    /* box-shadow: 0 1px 6px var(--charcoal); */
+    border: .001rem solid var(--charcoal);
   }
 
   .VideoAds {
