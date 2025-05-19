@@ -61,7 +61,7 @@ export default function SocialCards() {
     <ThemeProvider theme={theme}>
       <div className={styles.SocialCardsContainer}>
         <main className={styles.SocialCardsMain} ref={mainRef}>
-          <h1 className={styles.SocialCardsHeader}>Read, Discover & Enjoy</h1>
+          <p className={styles.SectionTitle}>Read, Discover & Enjoy</p>
 
           <div className={styles.SocialCardsSearchContainer}>
             <FormControl fullWidth variant="standard" className={styles.SearchInputWrapper}>
@@ -78,28 +78,105 @@ export default function SocialCards() {
                     <SearchIcon sx={{ color: 'var(--off-white)' }} />
                   </InputAdornment>
                 }
-                sx={{ color: 'white' }}
-
+                sx={{
+                  height: '40px',
+                  borderRadius: '4px',
+                  paddingLeft: '8px',
+                  color: 'white',
+                  backgroundColor: 'var(--charcoal)',
+                  transition: 'background-color 0.3s, color 0.3s',
+                  '&:hover': {
+                    backgroundColor: 'var(--off-white)',
+                    color: 'black',
+                    '& .MuiSvgIcon-root': {
+                      color: 'black',
+                    },
+                  },
+                  '&.Mui-focused': {
+                    backgroundColor: 'var(--off-white)',
+                    color: 'black',
+                    '& .MuiSvgIcon-root': {
+                      color: 'black',
+                    },
+                  },
+                  // Remove borders from all states
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none !important',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    border: 'none !important',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    border: 'none !important',
+                  },
+                }}
               />
             </FormControl>
 
-            <FormControl variant="standard" className={styles.DropdownWrapper}>
+            <FormControl variant="outlined" className={styles.DropdownWrapper} sx={{ height: '40px' }}>
               <Select
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value)}
                 displayEmpty
-                inputProps={{ 'aria-label': 'Sort options' }}
+                input={
+                  <OutlinedInput
+                    notched={false}
+                    sx={{
+                      height: '40px',
+                      padding: '0 16px',
+                      backgroundColor: 'var(--charcoal) !important',
+                      color: 'white',
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        border: 'none !important',
+                      },
+                      '&:hover .MuiOutlinedInput-notchedOutline': {
+                        border: 'none !important',
+                      },
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        border: 'none !important',
+                      },
+                      '& input': {
+                        padding: 0,
+                        height: '100%',
+                        boxSizing: 'border-box',
+                      },
+                    }}
+                  />
+                }
                 sx={{
+                  height: '40px',
+                  backgroundColor: 'var(--charcoal)',
                   color: 'white',
-                  '& .MuiSelect-icon': { color: 'white' },
-                  borderRadius: '50px',
-                  padding: '0.5rem 1rem',
+                  borderRadius: '4px',
+                  '& .MuiSelect-select': {
+                    paddingLeft: '12px', // 👈 LEFT PADDING ADDED HERE
+                    paddingTop: '10px',
+                    paddingBottom: '10px',
+                  },
+                  '& .MuiSelect-icon': {
+                    color: 'white',
+                    top: 'calc(50% - 12px)',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    height: '40px',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none !important',
+                  },
                 }}
                 MenuProps={{
                   PaperProps: {
                     sx: {
-                      backgroundColor: 'var(--charcoal)', // only the dropdown list
-                      color: 'var(--off-white)',          // text color of the items
+                      backgroundColor: 'var(--charcoal)',
+                      color: 'var(--off-white)',
+                      border: 'none',
+                      boxShadow: '0px 4px 12px rgba(0,0,0,0.2)',
+                      '& .MuiMenuItem-root': {
+                        minHeight: '36px',
+                        '&:hover': {
+                          backgroundColor: 'rgba(255,255,255,0.1)',
+                        },
+                      },
                     },
                   },
                 }}
@@ -107,7 +184,6 @@ export default function SocialCards() {
                 <MenuItem value="popular">Most Popular</MenuItem>
                 <MenuItem value="dateAdded">Newest First</MenuItem>
               </Select>
-
             </FormControl>
           </div>
 

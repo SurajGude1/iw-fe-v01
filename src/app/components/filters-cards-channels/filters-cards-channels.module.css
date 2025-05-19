@@ -3,20 +3,25 @@
     width: 100%;
     justify-content: space-between;
     padding: 1.4rem;
+    margin-top: 3.6rem;
     background: var(--rich-black);
     color: var(--off-white);
     flex-wrap: wrap;
-    border: 2px solid magenta;
 }
 
 .SocialCardsMain {
     flex: 0 0 70%;
 }
 
-.SocialCardsHeader {
-    font-size: 1.4rem;
+.SectionTitle {
+    color: var(--off-white);
+    margin-bottom: 2.5rem;
     text-align: left;
-    margin-bottom: 1.5rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+    display: inline-block;
+    transform: scaleX(1.1);
+    transform-origin: left;
 }
 
 .SocialCardsSidebar {
@@ -33,9 +38,25 @@
     display: flex;
     flex-direction: row;
     gap: 0.8rem;
-    margin-bottom: 4rem;
+    padding-bottom: 1.4rem;
     flex-wrap: nowrap;
+    position: relative;
 }
+
+.SocialCardsSearchContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.3px;
+    /* Extra thin */
+    width: 100%;
+    background-color: var(--charcoal);
+    /* Only charcoal */
+    opacity: 0.8;
+    /* Slightly transparent for subtle effect */
+}
+
 
 .YoutubeIcon {
     color: #FF0000;
@@ -115,20 +136,16 @@
 .DropdownWrapper {
     flex: 1;
     min-width: 150px;
+    border: 2px solid magenta;
 }
 
-.DropdownWrapper .MuiInputBase-root {
-    border: 1px solid white;
-    border-radius: 50px !important;
-    padding: 8px 16px;
-    background: transparent;
-}
 
 /* Grid */
 .SocialCardsGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.7rem;
+    margin-top: 2.4rem;
     margin-bottom: 2rem;
 }
 

@@ -9,14 +9,14 @@
 }
 
 .SectionTitle {
-  color: var(--off-white);
-  margin-bottom: .5rem;
-  text-align: left;
-  font-weight: 400;
-  font-size: 1.4rem;
-  display: inline-block;
-  transform: scaleX(1.5); 
-  transform-origin: left; 
+    color: var(--off-white);
+    margin-bottom: .5rem;
+    text-align: left;
+    font-weight: 400;
+    font-size: 1.2rem;
+    display: inline-block;
+    transform: scaleX(1.1);
+    transform-origin: left;
 }
 
 
