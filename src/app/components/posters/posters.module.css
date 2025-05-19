@@ -3,17 +3,22 @@
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.8rem;
     background-color: var(--background-color);
     position: relative;
-    border: 2px solid green;
 }
 
-.PostersTitle {
-    color: var(--off-white);
-    text-align: left;
-    font-size: 1.4rem;
+.SectionTitle {
+  color: var(--off-white);
+  margin-bottom: .5rem;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.4rem;
+  display: inline-block;
+  transform: scaleX(1.5); 
+  transform-origin: left; 
 }
+
 
 .CarouselContainer {
     width: 100%;
@@ -25,7 +30,7 @@
 .Carousel {
     width: 100%;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.8rem;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -72,7 +77,7 @@
     cursor: pointer;
     box-shadow: 0 1px 12px var(--charcoal);
     transition: all 0.3s ease;
-    border-radius: 4px;
+    border-radius: 1px;
     flex-shrink: 0;
 }
 
@@ -83,7 +88,7 @@
     transition: all 0.3s ease;
     transform-style: preserve-3d;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 1px;
 }
 
 .Poster:hover {
@@ -184,7 +189,7 @@
     }
 
     .Carousel {
-        gap: 1rem;
+        gap: 1.4rem;
     }
 
     .KnowMoreBtn {
