@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import cardData from "../../data/card-data.json";
 import styles from "./hero.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faShare } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faHeart, faShare } from "@fortawesome/free-solid-svg-icons";
 
 // Lazy load non-critical components
 const Button = dynamic(() => import('../global/buttons/button'), {
@@ -132,11 +132,15 @@ function Hero() {
             <div className={styles.Divider} />
             <div className={styles.Actions}>
               <button aria-label={`Like ${currentCard.title}`} itemProp="interactionCount">
-                <FontAwesomeIcon icon={faHeart} style={{ fontSize: '1.4rem' }} />
+                <FontAwesomeIcon icon={faEye} style={{ fontSize: '1.2rem' }} />
+                <span>{currentCard.likes}</span>
+              </button>
+              <button aria-label={`Like ${currentCard.title}`} itemProp="interactionCount">
+                <FontAwesomeIcon icon={faHeart} style={{ fontSize: '1.2rem' }} />
                 <span>{currentCard.likes}</span>
               </button>
               <button aria-label={`Share ${currentCard.title}`}>
-                <FontAwesomeIcon icon={faShare} style={{ fontSize: '1.4rem' }} />
+                <FontAwesomeIcon icon={faShare} style={{ fontSize: '1.2rem' }} />
                 <span>{currentCard.shares}</span>
               </button>
             </div>
