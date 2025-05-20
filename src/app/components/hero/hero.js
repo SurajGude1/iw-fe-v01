@@ -84,13 +84,29 @@ function Hero() {
   }, [currentCardIndex]);
 
   // Configure DOMPurify to ALLOW ONLY TEXT & BASIC FORMATTING TAGS
-  const sanitizeConfig = {
-    FORBID_TAGS: ['img', 'video', 'iframe', 'picture', 'source', 'svg', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], // Block media tags
-    FORBID_ATTR: ['src', 'poster'], // Block attributes that load media
-    ALLOWED_TAGS: [
-      'p', 'br', 'ul', 'ol', 'li', 'strong', 'em', 'a', // Text formatting
-      'div', 'span', 'table', 'tr', 'td', 'th' // Structural elements
-    ],
+  const getSanitizedHtml = (html) => {
+    if (typeof window !== 'undefined') {
+      const DOMPurify = require('dompurify');
+
+      const sanitizeConfig = {
+        FORBID_TAGS: [
+          'img', 'video', 'iframe', 'picture', 'source', 'svg',
+          'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'figure', 'header'
+        ],
+        FORBID_ATTR: ['src', 'poster', 'alt', 'width', 'height'],
+        ALLOWED_TAGS: [
+          'p', 'br', 'ul', 'ol', 'li',
+          'strong', 'em', 'b', 'i', 'u', 'a',
+          'span', 'div',
+          'table', 'thead', 'tbody', 'tr', 'td', 'th',
+          'blockquote', 'code', 'pre'
+        ],
+        ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'id', 'style'], // Limited attributes
+      };
+
+      return DOMPurify.sanitize(html, sanitizeConfig);
+    }
+    return '';
   };
 
   return (
@@ -180,7 +196,7 @@ function Hero() {
             className={styles.SummaryContent}
             itemProp="description"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(currentCard.postSummary, sanitizeConfig),
+              __html: getSanitizedHtml(currentCard.postSummary),
             }}
           />
           <div className={styles.SummaryFooter}>
