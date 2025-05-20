@@ -1,6 +1,6 @@
 .PostersWrapper {
     width: 100%;
-    padding: 2rem 1rem;
+    padding-left: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
@@ -12,11 +12,12 @@
     color: var(--off-white);
     margin-bottom: .5rem;
     text-align: left;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1.2rem;
     display: inline-block;
-    transform: scaleX(1.1);
+    transform: scaleX(1.4);
     transform-origin: left;
+    font-family: sans-serif;
 }
 
 
