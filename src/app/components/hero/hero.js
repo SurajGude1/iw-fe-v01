@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 import dynamic from 'next/dynamic';
-import cardData from "../../data/card-data.json";
+import cardData from "../../data/posts-data.json";
+// import cardData from "../../data/card-data.json";
 import styles from "./hero.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faHeart, faShare } from "@fortawesome/free-solid-svg-icons";
@@ -78,7 +79,7 @@ function Hero() {
   useEffect(() => {
     const nextIndex = (currentCardIndex + 1) % cardData.length;
     const nextImage = new Image();
-    nextImage.src = cardData[nextIndex].imageUrl;
+    nextImage.src = cardData[nextIndex].thumbnail;
   }, [currentCardIndex]);
 
   return (
@@ -114,7 +115,7 @@ function Hero() {
 
             <div className={styles.ImageWrapper}>
               <OptimizedImage
-                src={currentCard.imageUrl}
+                src={currentCard.thumbnail}
                 alt={currentCard.title}
                 width={320}
                 height={200}
@@ -165,7 +166,7 @@ function Hero() {
 
           <h2 className={styles.SummaryTitle} itemProp="headline">{currentCard.title}</h2>
           <div className={styles.SummaryContent} itemProp="description">
-            <p>{currentCard.cardSummary}</p>
+            <p>{currentCard.postSummary}</p>
           </div>
           <div className={styles.SummaryFooter}>
             <Button

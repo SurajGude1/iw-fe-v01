@@ -182,7 +182,42 @@
   margin-bottom: 1.8rem;
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  height: calc(2.4em * 8);
+  /* line-height × number of lines */
 }
+
+
+.SummaryContent {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 1.8rem;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  height: calc(2.4em * 8); /* fits 8 lines of text */
+}
+
+/* Paragraph inside summary */
+.SummaryContent p {
+  margin: 0;
+  line-height: 2.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  word-break: break-word;
+  white-space: normal;
+  position: relative; /* fix overlap */
+}
+
+/* Hide any image or media content inside SummaryContent */
+.SummaryContent img,
+.SummaryContent iframe,
+.SummaryContent video,
+.SummaryContent picture {
+  display: none !important;
+}
+
 
 .SummaryContent p {
   position: absolute;
