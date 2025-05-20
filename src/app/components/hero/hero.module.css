@@ -261,7 +261,7 @@
   .Summary {
     padding: 1.4rem;
     /* box-shadow: 0 1px 6px var(--charcoal); */
-    border: .001rem solid var(--coke-red);
+    border: .001rem solid var(--charcoal);
   }
 
   .VideoAds {
