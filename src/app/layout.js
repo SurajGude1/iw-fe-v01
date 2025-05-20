@@ -48,6 +48,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
+      <meta charset="UTF-8" />
       {/* Optional: Add className={sourGummy.variable} to <html> if font is scoped */}
       <body>
         {/*  Global loader appears before content is hydrated */}
