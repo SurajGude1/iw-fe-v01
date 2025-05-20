@@ -85,10 +85,9 @@ function Hero() {
 
   // Configure DOMPurify to ALLOW ONLY TEXT & BASIC FORMATTING TAGS
   const sanitizeConfig = {
-    FORBID_TAGS: ['img', 'video', 'iframe', 'picture', 'source', 'svg'], // Block media tags
+    FORBID_TAGS: ['img', 'video', 'iframe', 'picture', 'source', 'svg', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], // Block media tags
     FORBID_ATTR: ['src', 'poster'], // Block attributes that load media
     ALLOWED_TAGS: [
-      'h1', 'h2', 'h3', 'h4', 'h5', 'h6', // Headings
       'p', 'br', 'ul', 'ol', 'li', 'strong', 'em', 'a', // Text formatting
       'div', 'span', 'table', 'tr', 'td', 'th' // Structural elements
     ],
