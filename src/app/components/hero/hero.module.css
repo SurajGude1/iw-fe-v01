@@ -258,29 +258,23 @@
 }
 
 @media (max-width: 768px) {
-  .Hero {
-    padding: 3rem 1.8rem;
-    gap: 1.5rem;
-  }
-
   .Summary {
     padding: 1.4rem;
     /* box-shadow: 0 1px 6px var(--charcoal); */
-    border: .001rem solid var(--charcoal);
+    border: .001rem solid var(--coke-red);
   }
 
   .VideoAds {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
   .Hero {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
     gap: 1.2rem;
+    padding: 3rem 1.8rem;
+    gap: 1.5rem;
   }
 
   .Card,
@@ -289,3 +283,5 @@
     max-width: 100%;
   }
 }
+
+@media (max-width: 768px) {}
