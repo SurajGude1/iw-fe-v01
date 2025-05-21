@@ -38,6 +38,9 @@
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
   background: var(--rich-black);
   z-index: 2;
   transform: scaleX(0);
@@ -48,6 +51,7 @@
 .curtainClose {
   transform: scaleX(1);
   transform-origin: left;
+  opacity: 1;
 }
 
 .TopSection {

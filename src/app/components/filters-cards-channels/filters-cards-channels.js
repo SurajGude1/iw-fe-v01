@@ -34,7 +34,7 @@ export default function SocialCards() {
   const [sortOption, setSortOption] = useState("popular");
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
-  const mainRef = useRef(null);
+  const searchContainerRef = useRef(null);
 
   const filteredCards = cardsData
     .filter(card =>
@@ -54,16 +54,17 @@ export default function SocialCards() {
 
   const handlePageChange = (_, value) => {
     setCurrentPage(value);
-    mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to the search container when page changes
+    searchContainerRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <ThemeProvider theme={theme}>
       <div className={styles.SocialCardsContainer}>
-        <main className={styles.SocialCardsMain} ref={mainRef}>
+        <main className={styles.SocialCardsMain}>
           <p className={styles.SectionTitle}>Discover more</p>
 
-          <div className={styles.SocialCardsSearchContainer}>
+          <div className={styles.SocialCardsSearchContainer} ref={searchContainerRef}>
             <FormControl fullWidth variant="standard" className={styles.SearchInputWrapper}>
               <OutlinedInput
                 id="search-input"
@@ -99,7 +100,6 @@ export default function SocialCards() {
                       color: 'black',
                     },
                   },
-                  // Remove borders from all states
                   '& .MuiOutlinedInput-notchedOutline': {
                     border: 'none !important',
                   },
@@ -149,7 +149,7 @@ export default function SocialCards() {
                   color: 'white',
                   borderRadius: '4px',
                   '& .MuiSelect-select': {
-                    paddingLeft: '12px', // 👈 LEFT PADDING ADDED HERE
+                    paddingLeft: '12px',
                     paddingTop: '10px',
                     paddingBottom: '10px',
                   },
@@ -256,5 +256,3 @@ export default function SocialCards() {
     </ThemeProvider>
   );
 }
-
-
