@@ -1,7 +1,7 @@
 import styles from "./posters.module.css";
 import Image from "next/image";
 import Button from "../global/buttons/button";
-import postersData from "../../data/posters-data.json";
+import postersData from "../../data/posts-data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronLeft, faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState, useEffect } from "react";
@@ -91,8 +91,8 @@ export default function Posters() {
               <div key={poster.id} className={styles.Poster}>
                 <div className={styles.PosterContent}>
                   <Image
-                    src={poster.imageUrl}
-                    alt={poster.altText}
+                    src={poster.thumbnail}
+                    alt={poster.title}
                     fill
                     className={styles.PosterImage}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
