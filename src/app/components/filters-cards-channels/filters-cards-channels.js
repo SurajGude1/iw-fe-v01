@@ -210,7 +210,14 @@ export default function SocialCards() {
                     <span className={styles.SocialCardViews}>
                       <FontAwesomeIcon icon={faEye} /> {card.views}
                     </span>
-                    <Link href="#" className={styles.SocialCardKnowMore}>Know more</Link>
+                    <Link
+                      href={`/explore-articles/${card.id}/${encodeURIComponent(card.title)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.SocialCardKnowMore}
+                    >
+                      Know more
+                    </Link>
                   </div>
                 </div>
               </article>

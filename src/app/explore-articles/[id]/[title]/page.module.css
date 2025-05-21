@@ -1,0 +1,269 @@
+.BlogWrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.4rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    border: 2px solid magenta;
+}
+
+.Blog {
+    width: 55%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.4rem;
+    background-color: var(--rich-black);
+    box-sizing: border-box;
+}
+
+.Title {
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    line-height: 1.5;
+    color: var(--off-white);
+    margin: 0;
+    font-weight: 600;
+}
+
+.Actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--charcoal);
+    border-bottom: 1px solid var(--charcoal);
+}
+
+.ActionItem {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.Span {
+    color: var(--off-white);
+    font-size: 0.95rem;
+}
+
+.Content {
+    width: 100%;
+    color: var(--off-white);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.Content * {
+    color: inherit !important;
+    max-width: 100%;
+}
+
+.Content p,
+.Content h1,
+.Content h2,
+.Content h3,
+.Content h4,
+.Content ul,
+.Content li {
+    line-height: 1.8;
+    margin: 1.2rem 0;
+}
+
+.Content h1 {
+    font-size: 1.8rem;
+}
+
+.Content h2 {
+    font-size: 1.6rem;
+}
+
+.Content h3 {
+    font-size: 1.4rem;
+}
+
+.Content h4 {
+    font-size: 1.2rem;
+}
+
+.Content a {
+    color: var(--verdigris) !important;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.Content a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.Content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Content iframe {
+    max-width: 100%;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+.Content pre {
+    background: var(--charcoal);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+}
+
+.Content code {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.Recommended {
+    width: 20%;
+    position: sticky;
+    border: 1px solid var(--coke-red);
+    padding: 1rem;
+    margin-left: 2rem;
+    border-radius: 0.5rem;
+}
+
+.Recommended h3 {
+    color: var(--off-white);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.RecommendedCard {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.RecommendedCard:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.RecommendedCard h4 {
+    color: var(--off-white);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.RecommendedCard p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .Blog {
+        width: 60%;
+    }
+
+    .Recommended {
+        width: 25%;
+    }
+}
+
+@media (max-width: 992px) {
+    .BlogWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Blog {
+        width: 90%;
+        padding: 1.8rem;
+    }
+
+    .Recommended {
+        width: 90%;
+        position: static;
+        margin: 2rem 0 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .BlogWrapper {
+        padding: 0%;
+    }
+
+    .Blog {
+        width: 100%;
+        padding: 1.4rem;
+        gap: 1.5rem;
+    }
+
+    .Title {
+        font-size: 1.6rem;
+    }
+
+    .Actions {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .Span {
+        font-size: 0.85rem;
+    }
+
+    .Content {
+        font-size: 1rem;
+    }
+
+    .Content h1 {
+        font-size: 1.5rem;
+    }
+
+    .Content h2 {
+        font-size: 1.3rem;
+    }
+
+    .Content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .BlogWrapper {
+        padding: 0;
+    }
+
+    .Blog {
+        padding: 1rem;
+        gap: 1.2rem;
+    }
+
+    .Title {
+        font-size: 1.4rem;
+    }
+
+    .Actions {
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .Recommended {
+        padding: 0.8rem;
+    }
+}
