@@ -201,7 +201,7 @@ export default function SocialCards() {
                 </div>
                 <div className={styles.SocialCardContent}>
                   <h2 className={styles.SocialCardTitle}>{card.title}</h2>
-                  <p className={styles.SocialCardDescription}>{card.postSummary}</p>
+                  {/* <p className={styles.SocialCardDescription}>{card.postSummary}</p> */}
                   <div className={styles.SocialCardFooter}>
                     <span className={styles.SocialCardViews}>
                       <FontAwesomeIcon icon={faEye} /> {card.views}
