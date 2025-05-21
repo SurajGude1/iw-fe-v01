@@ -90,13 +90,16 @@ export default function Posters() {
             {chunk.map((poster) => (
               <div key={poster.id} className={styles.Poster}>
                 <div className={styles.PosterContent}>
-                  <Image
-                    src={poster.thumbnail}
-                    alt={poster.title}
-                    fill
-                    className={styles.PosterImage}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                  {poster.thumbnail ? (
+                    <Image
+                      src={poster.thumbnail}
+                      alt={poster.title || "Poster"}
+                      fill
+                      className={styles.PosterImage}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : null}
+
                   <div className={styles.PosterText}>{poster.title}</div>
                   <div className={styles.ButtonContainer}>
                     <Button
