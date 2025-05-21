@@ -12,7 +12,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-import cardsData from "../../data/horizontal-cards-data.json";
+import cardsData from "../../data/posts-data.json";
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const theme = createTheme({
@@ -39,7 +39,7 @@ export default function SocialCards() {
   const filteredCards = cardsData
     .filter(card =>
       card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.description.toLowerCase().includes(searchTerm.toLowerCase())
+      card.postSummary.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
       if (sortOption === "popular") return b.views - a.views;
@@ -192,16 +192,16 @@ export default function SocialCards() {
               <article key={card.id} className={styles.SocialCard}>
                 <div className={styles.SocialCardImageContainer}>
                   <Image
-                    src={card.imageUrl}
+                    src={card.thumbnail}
                     alt={card.title}
                     fill
-                    style={{ objectFit: 'cover', borderRadius: 'inherit' }}
+                    style={{ objectFit: 'covertitle', borderRadius: 'inherit' }}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div className={styles.SocialCardContent}>
                   <h2 className={styles.SocialCardTitle}>{card.title}</h2>
-                  <p className={styles.SocialCardDescription}>{card.description}</p>
+                  <p className={styles.SocialCardDescription}>{card.postSummary}</p>
                   <div className={styles.SocialCardFooter}>
                     <span className={styles.SocialCardViews}>
                       <FontAwesomeIcon icon={faEye} /> {card.views}

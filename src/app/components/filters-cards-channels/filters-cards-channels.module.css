@@ -171,18 +171,22 @@
     padding: 0.8rem;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .SocialCardTitle {
     font-size: 1rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.2;
+    white-space: nowrap;        
+    overflow: hidden;          
+    text-overflow: ellipsis;    
 }
 
 .SocialCardDescription {
     color: var(--off-white);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.3rem;
     font-size: 0.8rem;
     opacity: 0.9;
     line-height: 1.4;
