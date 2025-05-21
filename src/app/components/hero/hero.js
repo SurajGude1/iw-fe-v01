@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 import dynamic from 'next/dynamic';
 import cardData from "../../data/posts-data.json";
-// import cardData from "../../data/card-data.json";
 import styles from "./hero.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faHeart, faShare } from "@fortawesome/free-solid-svg-icons";
-import DOMPurify from 'dompurify';
 
 // Lazy load non-critical components
 const Button = dynamic(() => import('../global/buttons/button'), {
@@ -36,12 +34,37 @@ VideoPlayer.displayName = 'VideoPlayer';
 
 function Hero() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [curtainPhase, setCurtainPhase] = useState('open'); // 'open' | 'closing' | 'opening'
+  const [sanitizedSummary, setSanitizedSummary] = useState('');
   const intervalRef = useRef(null);
 
   // Memoize current card to prevent unnecessary re-renders
   const currentCard = useMemo(() => cardData[currentCardIndex], [currentCardIndex]);
+
+  // Handle HTML sanitization in useEffect
+  useEffect(() => {
+    if (typeof window !== 'undefined' && currentCard?.postSummary) {
+      const DOMPurify = require('dompurify');
+      const sanitizeConfig = {
+        FORBID_TAGS: [
+          'img', 'video', 'iframe', 'picture', 'source', 'svg',
+          'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'figure', 'header'
+        ],
+        FORBID_ATTR: ['src', 'poster', 'alt', 'width', 'height'],
+        ALLOWED_TAGS: [
+          'p', 'br', 'ul', 'ol', 'li',
+          'strong', 'em', 'b', 'i', 'u', 'a',
+          'span', 'div',
+          'table', 'thead', 'tbody', 'tr', 'td', 'th',
+          'blockquote', 'code', 'pre'
+        ],
+        ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'id', 'style'],
+      };
+      const sanitized = DOMPurify.sanitize(currentCard.postSummary, sanitizeConfig);
+      setSanitizedSummary(sanitized);
+    }
+  }, [currentCard]);
 
   // Use useCallback for event handlers
   const handleHover = useCallback(() => {
@@ -53,19 +76,27 @@ function Hero() {
     setIsHovered(false);
   }, []);
 
-  // Optimized auto-rotation effect
+  // Optimized auto-rotation effect with curtain animation
   useEffect(() => {
     if (!isHovered) {
       intervalRef.current = setInterval(() => {
-        setIsAnimating(true);
-        const timer = setTimeout(() => {
-          setCurrentCardIndex(prev =>
-            (prev + 1) % cardData.length // More efficient circular navigation
-          );
-          setIsAnimating(false);
-        }, 1000);
+        // Start closing animation
+        setCurtainPhase('closing');
 
-        return () => clearTimeout(timer);
+        // After closing animation completes, switch card and start opening
+        const closeTimer = setTimeout(() => {
+          setCurrentCardIndex(prev => (prev + 1) % cardData.length);
+          setCurtainPhase('opening');
+
+          // After opening animation completes, reset to open state
+          const openTimer = setTimeout(() => {
+            setCurtainPhase('open');
+          }, 800);
+          
+          return () => clearTimeout(openTimer);
+        }, 800);
+
+        return () => clearTimeout(closeTimer);
       }, 10000);
     }
 
@@ -83,32 +114,6 @@ function Hero() {
     nextImage.src = cardData[nextIndex].thumbnail;
   }, [currentCardIndex]);
 
-  // Configure DOMPurify to ALLOW ONLY TEXT & BASIC FORMATTING TAGS
-  const getSanitizedHtml = (html) => {
-    if (typeof window !== 'undefined') {
-      const DOMPurify = require('dompurify');
-
-      const sanitizeConfig = {
-        FORBID_TAGS: [
-          'img', 'video', 'iframe', 'picture', 'source', 'svg',
-          'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'figure', 'header'
-        ],
-        FORBID_ATTR: ['src', 'poster', 'alt', 'width', 'height'],
-        ALLOWED_TAGS: [
-          'p', 'br', 'ul', 'ol', 'li',
-          'strong', 'em', 'b', 'i', 'u', 'a',
-          'span', 'div',
-          'table', 'thead', 'tbody', 'tr', 'td', 'th',
-          'blockquote', 'code', 'pre'
-        ],
-        ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'id', 'style'], // Limited attributes
-      };
-
-      return DOMPurify.sanitize(html, sanitizeConfig);
-    }
-    return '';
-  };
-
   return (
     <div className={styles.Hero} role="region" aria-label="Featured content">
       {/* Main Card (Left) */}
@@ -121,9 +126,13 @@ function Hero() {
         itemType="https://schema.org/Article"
       >
         <div className={styles.CardContent}>
-          {/* Curtain overlay */}
+          {/* Curtain overlay with animation phases */}
           <div
-            className={`${styles.Curtain} ${isAnimating ? styles.curtainClose : ''}`}
+            className={`
+              ${styles.Curtain}
+              ${curtainPhase === 'closing' ? styles.curtainClose : ''}
+              ${curtainPhase === 'opening' ? styles.curtainOpen : ''}
+            `}
             aria-hidden="true"
           />
 
@@ -159,17 +168,17 @@ function Hero() {
           <div className={styles.BottomSection}>
             <div className={styles.Divider} />
             <div className={styles.Actions}>
-              <button aria-label={`Like ${currentCard.title}`} itemProp="interactionCount">
+              <button aria-label={`View ${currentCard.title}`} itemProp="interactionCount">
                 <FontAwesomeIcon icon={faEye} style={{ fontSize: '1.2rem' }} />
-                <span>{currentCard.likes}</span>
+                <span>{currentCard.views || 0}</span>
               </button>
               <button aria-label={`Like ${currentCard.title}`} itemProp="interactionCount">
                 <FontAwesomeIcon icon={faHeart} style={{ fontSize: '1.2rem' }} />
-                <span>{currentCard.likes}</span>
+                <span>{currentCard.likes || 0}</span>
               </button>
               <button aria-label={`Share ${currentCard.title}`}>
                 <FontAwesomeIcon icon={faShare} style={{ fontSize: '1.2rem' }} />
-                <span>{currentCard.shares}</span>
+                <span>{currentCard.shares || 0}</span>
               </button>
             </div>
           </div>
@@ -185,9 +194,13 @@ function Hero() {
         itemType="https://schema.org/Article"
       >
         <div className={styles.SummaryContentContainer}>
-          {/* Curtain overlay */}
+          {/* Curtain overlay with animation phases */}
           <div
-            className={`${styles.Curtain} ${isAnimating ? styles.curtainClose : ''}`}
+            className={`
+              ${styles.Curtain}
+              ${curtainPhase === 'closing' ? styles.curtainClose : ''}
+              ${curtainPhase === 'opening' ? styles.curtainOpen : ''}
+            `}
             aria-hidden="true"
           />
 
@@ -195,9 +208,7 @@ function Hero() {
           <div
             className={styles.SummaryContent}
             itemProp="description"
-            dangerouslySetInnerHTML={{
-              __html: getSanitizedHtml(currentCard.postSummary),
-            }}
+            dangerouslySetInnerHTML={{ __html: sanitizedSummary }}
           />
           <div className={styles.SummaryFooter}>
             <Button
