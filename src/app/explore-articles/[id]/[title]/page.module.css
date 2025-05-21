@@ -44,6 +44,11 @@
     border-bottom: 1px solid var(--charcoal);
 }
 
+.Icon {
+    font-size: 1.4rem;
+    color: var(--off-white);
+}
+
 .ActionItem {
     display: flex;
     align-items: center;
@@ -260,6 +265,12 @@
     .Actions {
         justify-content: space-between;
         gap: 0.5rem;
+    }
+
+
+    .Icon {
+        font-size: 1rem;
+        color: var(--off-white);
     }
 
     .Recommended {

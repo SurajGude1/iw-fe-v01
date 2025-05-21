@@ -26,13 +26,13 @@ export default function Blog() {
                     {post.title}
                 </p>
                 <div className={styles.Actions}>
-                    <FontAwesomeIcon icon={faEye} style={{ fontSize: '1.4rem' }} color='var(--off-white)' />
+                    <FontAwesomeIcon icon={faEye} className={styles.Icon} />
                     <span className={styles.Span}>{post.views}</span>
-                    <FontAwesomeIcon icon={faHeart} style={{ fontSize: '1.4rem' }} color='var(--off-white)' />
+                    <FontAwesomeIcon icon={faHeart} className={styles.Icon} />
                     <span className={styles.Span}>{post.likes}</span>
-                    <FontAwesomeIcon icon={faShare} style={{ fontSize: '1.4rem' }} color='var(--off-white)' />
+                    <FontAwesomeIcon icon={faShare} className={styles.Icon} />
                     <span className={styles.Span}>{post.shares}</span>
-                    <FontAwesomeIcon icon={faStopwatch} style={{ fontSize: '1.4rem' }} color='var(--off-white)' />
+                    <FontAwesomeIcon icon={faStopwatch} className={styles.Icon} />
                     <span className={styles.Span}>12 min</span> {/* Placeholder, replace with real duration if available */}
                 </div>
                 <div
