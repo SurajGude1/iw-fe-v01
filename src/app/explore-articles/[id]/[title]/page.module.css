@@ -8,7 +8,6 @@
     padding: 1.4rem;
     box-sizing: border-box;
     overflow-x: hidden;
-    border: 2px solid magenta;
 }
 
 .Blog {
@@ -246,7 +245,7 @@
 
 @media (max-width: 480px) {
     .BlogWrapper {
-        padding: 0;
+        padding: 0.1rem;
     }
 
     .Blog {
