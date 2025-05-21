@@ -153,7 +153,8 @@
 
 .SocialCard {
     display: flex;
-    box-shadow: 0 1px 6px var(--verdigris);
+    /* box-shadow: 0 1px 6px var(--verdigris); */
+    border: 0.01rem solid var(--charcoal);
     border-radius: 8px;
     overflow: hidden;
     height: 120px;
