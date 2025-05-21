@@ -183,6 +183,10 @@ export default function SocialCards() {
               >
                 <MenuItem value="popular">Most Popular</MenuItem>
                 <MenuItem value="dateAdded">Newest First</MenuItem>
+                <MenuItem value="popular">Political</MenuItem>
+                <MenuItem value="dateAdded">Life story</MenuItem>
+                <MenuItem value="dateAdded">Health</MenuItem>
+                <MenuItem value="dateAdded">Women</MenuItem>
               </Select>
             </FormControl>
           </div>
