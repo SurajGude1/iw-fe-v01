@@ -12,7 +12,6 @@
 
 .Blog {
     width: 55%;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -21,33 +20,31 @@
     padding: 2.4rem;
     background-color: var(--rich-black);
     box-sizing: border-box;
+    word-break: break-word;
+    /* allows words to break mid-line */
 }
 
 .Title {
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    /* Responsive title size: min 24px, max 35.2px */
     line-height: 1.5;
     color: var(--off-white);
     margin: 0;
     font-weight: 600;
     text-align: start;
+    word-break: break-word;
 }
 
 .Actions {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
     gap: 1.4rem;
     padding: 1.5rem 0;
     border-top: 1px solid var(--charcoal);
     border-bottom: 1px solid var(--charcoal);
-}
-
-.Icon {
-    font-size: 1.4rem;
-    color: var(--off-white);
 }
 
 .ActionItem {
@@ -56,22 +53,27 @@
     gap: 0.6rem;
 }
 
-.Span {
+.Icon {
+    font-size: 1.4rem;
     color: var(--off-white);
+}
+
+.Span {
     font-size: 0.95rem;
+    color: var(--off-white);
 }
 
 .Content {
     width: 100%;
-    color: var(--off-white);
-    line-height: 1.8;
-    font-size: 1.2rem;
     text-align: start;
+    color: var(--off-white);
+    word-break: break-word;
 }
 
 .Content * {
     color: inherit !important;
     max-width: 100%;
+    word-break: break-word;
 }
 
 .Content p,
@@ -80,19 +82,10 @@
 .Content h3,
 .Content h4,
 .Content ul,
-.Content li {
-    line-height: 2.4;
-}
-
+.Content li,
 .Content a {
-    color: var(--verdigris) !important;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.Content a:hover {
-    opacity: 0.8;
-    text-decoration: underline;
+    line-height: 2.8 !important;
+    font-size: inherit;
 }
 
 .Content img {
@@ -106,12 +99,12 @@
 
 .Content iframe {
     max-width: 100%;
-    margin: 1.5rem auto;
     display: block;
+    margin: 1.5rem auto;
 }
 
 .Content pre {
-    background: var(--charcoal);
+    background-color: var(--charcoal);
     padding: 1rem;
     border-radius: 0.5rem;
     overflow-x: auto;
@@ -125,16 +118,17 @@
 .Recommended {
     width: 20%;
     position: sticky;
+    top: 1rem;
+    margin-left: 2rem;
     border: 1px solid var(--coke-red);
     padding: 1rem;
-    margin-left: 2rem;
     border-radius: 0.5rem;
+    box-sizing: border-box;
 }
 
 .Recommended h3 {
+    margin: 0 0 1.5rem 0;
     color: var(--off-white);
-    margin-top: 0;
-    margin-bottom: 1.5rem;
     font-size: 1.2rem;
 }
 
@@ -145,25 +139,26 @@
 }
 
 .RecommendedCard:last-child {
-    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
+    border-bottom: none;
 }
 
 .RecommendedCard h4 {
-    color: var(--off-white);
     margin: 0 0 0.5rem 0;
+    color: var(--off-white);
     font-size: 1rem;
 }
 
 .RecommendedCard p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
-    margin: 0;
     line-height: 1.5;
+    margin: 0;
 }
 
-/* Responsive adjustments */
+/* Responsive Breakpoints */
+
 @media (max-width: 1200px) {
     .Blog {
         width: 60%;
@@ -194,7 +189,7 @@
 
 @media (max-width: 768px) {
     .BlogWrapper {
-        padding: 0%;
+        padding: 0;
     }
 
     .Blog {
@@ -205,6 +200,7 @@
 
     .Title {
         font-size: 1.6rem;
+        /* ~25.6px */
     }
 
     .Actions {
@@ -217,33 +213,24 @@
     }
 
     .Content {
-        line-height: 2.4;
-        font-size: 1.2rem;
-    }
-
-    .Content p,
-    .Content h1,
-    .Content h2,
-    .Content h3,
-    .Content h4,
-    .Content ul,
-    .Content li {
+        font-size: 1.1rem;
         line-height: 2.4;
     }
 }
 
 @media (max-width: 480px) {
-    .BlogWrapper {
-        /* padding: 0.4rem; */
+    .Blog {
+        padding: 1.6rem;
+        gap: 1.2rem;
     }
 
-    .Blog {
-        padding: 1.8rem;
-        gap: 1.2rem;
+    .Content {
+        line-height: 1.8;
     }
 
     .Title {
         font-size: 1.4rem;
+        /* ~22.4px */
     }
 
     .Actions {
@@ -251,19 +238,8 @@
         gap: 0.5rem;
     }
 
-    .Content p,
-    .Content h1,
-    .Content h2,
-    .Content h3,
-    .Content h4,
-    .Content ul,
-    .Content li {
-        line-height: 2.4;
-    }
-
     .Icon {
         font-size: 1rem;
-        color: var(--off-white);
     }
 
     .Recommended {
