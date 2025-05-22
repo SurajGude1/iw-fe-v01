@@ -76,18 +76,6 @@
     word-break: break-word;
 }
 
-.Content p,
-.Content h1,
-.Content h2,
-.Content h3,
-.Content h4,
-.Content ul,
-.Content li,
-.Content a {
-    line-height: 2.8 !important;
-    font-size: inherit;
-}
-
 .Content img {
     max-width: 100%;
     height: auto;
@@ -214,7 +202,6 @@
 
     .Content {
         font-size: 1.1rem;
-        line-height: 2.4;
     }
 }
 
@@ -225,7 +212,7 @@
     }
 
     .Content {
-        line-height: 1.8;
+        line-height: 1.4;
     }
 
     .Title {
