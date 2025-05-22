@@ -65,8 +65,8 @@
     width: 100%;
     color: var(--off-white);
     line-height: 1.8;
-    font-size: 1.1rem;
-    text-align: justify;
+    font-size: 1.2rem;
+    text-align: start;
 }
 
 .Content * {
@@ -81,24 +81,7 @@
 .Content h4,
 .Content ul,
 .Content li {
-    line-height: 1.8;
-    margin: 1.2rem 0;
-}
-
-.Content h1 {
-    font-size: 1.8rem;
-}
-
-.Content h2 {
-    font-size: 1.6rem;
-}
-
-.Content h3 {
-    font-size: 1.4rem;
-}
-
-.Content h4 {
-    font-size: 1.2rem;
+    line-height: 2.4;
 }
 
 .Content a {
@@ -234,29 +217,28 @@
     }
 
     .Content {
-        font-size: 1rem;
+        line-height: 2.4;
+        font-size: 1.2rem;
     }
 
-    .Content h1 {
-        font-size: 1.5rem;
-    }
-
-    .Content h2 {
-        font-size: 1.3rem;
-    }
-
-    .Content h3 {
-        font-size: 1.1rem;
+    .Content p,
+    .Content h1,
+    .Content h2,
+    .Content h3,
+    .Content h4,
+    .Content ul,
+    .Content li {
+        line-height: 2.4;
     }
 }
 
 @media (max-width: 480px) {
     .BlogWrapper {
-        padding: 0.4rem;
+        /* padding: 0.4rem; */
     }
 
     .Blog {
-        padding: 1rem;
+        padding: 1.8rem;
         gap: 1.2rem;
     }
 
@@ -269,6 +251,15 @@
         gap: 0.5rem;
     }
 
+    .Content p,
+    .Content h1,
+    .Content h2,
+    .Content h3,
+    .Content h4,
+    .Content ul,
+    .Content li {
+        line-height: 2.4;
+    }
 
     .Icon {
         font-size: 1rem;
