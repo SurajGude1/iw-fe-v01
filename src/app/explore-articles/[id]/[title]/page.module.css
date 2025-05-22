@@ -20,19 +20,15 @@
     padding: 2.4rem;
     background-color: var(--rich-black);
     box-sizing: border-box;
-    word-break: break-word;
-    /* allows words to break mid-line */
 }
 
 .Title {
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    /* Responsive title size: min 24px, max 35.2px */
     line-height: 1.5;
     color: var(--off-white);
     margin: 0;
     font-weight: 600;
     text-align: start;
-    word-break: break-word;
 }
 
 .Actions {
@@ -65,15 +61,11 @@
 
 .Content {
     width: 100%;
-    text-align: start;
-    color: var(--off-white);
-    word-break: break-word;
 }
 
 .Content * {
-    color: inherit !important;
-    max-width: 100%;
-    word-break: break-word;
+    color: var(--off-white) !important;
+
 }
 
 .Content img {
@@ -89,18 +81,6 @@
     max-width: 100%;
     display: block;
     margin: 1.5rem auto;
-}
-
-.Content pre {
-    background-color: var(--charcoal);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-}
-
-.Content code {
-    font-family: monospace;
-    font-size: 0.9rem;
 }
 
 .Recommended {
@@ -146,7 +126,6 @@
 }
 
 /* Responsive Breakpoints */
-
 @media (max-width: 1200px) {
     .Blog {
         width: 60%;
@@ -188,7 +167,6 @@
 
     .Title {
         font-size: 1.6rem;
-        /* ~25.6px */
     }
 
     .Actions {
@@ -199,10 +177,6 @@
     .Span {
         font-size: 0.85rem;
     }
-
-    .Content {
-        font-size: 1.1rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -211,13 +185,8 @@
         gap: 1.2rem;
     }
 
-    .Content {
-        line-height: 1.4;
-    }
-
     .Title {
         font-size: 1.4rem;
-        /* ~22.4px */
     }
 
     .Actions {
