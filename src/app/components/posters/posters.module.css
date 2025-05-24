@@ -20,7 +20,6 @@
     font-family: sans-serif;
 }
 
-
 .CarouselContainer {
     width: 100%;
     position: relative;
@@ -121,21 +120,33 @@
     z-index: 2;
 }
 
-.ButtonContainer {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-    width: 80%;
-    text-align: center;
+.Poster:hover .PosterText,
+.Poster:hover {
+    opacity: 1;
 }
 
-.Poster:hover .PosterText,
-.Poster:hover .ButtonContainer {
-    opacity: 1;
+.ForwardArrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: var(--rich-black);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.ForwardArrow:hover {
+    background: var(--charcoal);
+    color: white;
 }
 
 .KnowMoreBtn {
@@ -173,6 +184,12 @@
     .NavButton {
         font-size: 1.6rem;
     }
+
+    .ForwardArrow {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -200,5 +217,11 @@
 
     .NavButton {
         font-size: 1.4rem;
+    }
+
+    .ForwardArrow {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 1rem;
     }
 }

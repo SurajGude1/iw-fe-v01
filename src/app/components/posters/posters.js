@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "../global/buttons/button";
 import postersData from "../../data/posts-data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleChevronLeft, faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faCircleChevronLeft, faCircleChevronRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState, useEffect } from "react";
 
 export default function Posters() {
@@ -101,15 +101,8 @@ export default function Posters() {
                   ) : null}
 
                   <div className={styles.PosterText}>{poster.title}</div>
-                  <div className={styles.ButtonContainer}>
-                    <Button
-                      text={poster.buttonText}
-                      backgroundColor="var(--off-white)"
-                      textColor="var(--rich-black)"
-                      hoverEffect={false}
-                      className={styles.KnowMoreBtn}
-                      onClick={() => console.log(`${poster.title} clicked`)}
-                    />
+                  <div className={styles.ForwardArrow}>
+                    <FontAwesomeIcon icon={faArrowRight} />
                   </div>
                 </div>
               </div>
