@@ -42,3 +42,4 @@ export default function FadeInSection({ children }) {
         </div>
     );
 }
+
