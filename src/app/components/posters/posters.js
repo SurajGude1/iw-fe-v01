@@ -68,6 +68,14 @@ export default function Posters() {
     }
   };
 
+  const onClickArrowHandler = (poster) => {
+    window.open(
+      `/explore-articles/${poster.id}/${encodeURIComponent(poster.title)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
   return (
     <div className={styles.PostersWrapper}>
       <p className={styles.SectionTitle}>Trending now</p>
@@ -102,7 +110,7 @@ export default function Posters() {
 
                   <div className={styles.PosterText}>{poster.title}</div>
                   <div className={styles.ForwardArrow}>
-                    <FontAwesomeIcon icon={faArrowRight} />
+                    <FontAwesomeIcon icon={faArrowRight} onClick={() => onClickArrowHandler(poster)} />
                   </div>
                 </div>
               </div>
