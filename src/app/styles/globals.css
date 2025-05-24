@@ -73,10 +73,8 @@ body {
   padding: 0;
 }
 
-
 /* Disable blue highlight on button click */
 button {
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
