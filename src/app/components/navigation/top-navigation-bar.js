@@ -1,11 +1,11 @@
 "use client";
 
-import { memo, useCallback, useReducer } from "react";
+import { memo, useCallback, useReducer, useState } from "react";
 import dynamic from "next/dynamic";
 import styles from "./top-navigation-bar.module.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faUser, faCog, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import Button from "../global/buttons/button";
@@ -52,6 +52,8 @@ function reducer(state, action) {
 
 function TopNavigationBar() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const userInitials = "JD"; // Replace with dynamic initials
 
   const toggleDrawer = useCallback(() => dispatch({ type: "TOGGLE_DRAWER" }), []);
   const openSignIn = useCallback(() => dispatch({ type: "OPEN_SIGNIN" }), []);
@@ -60,6 +62,7 @@ function TopNavigationBar() {
   const closeEarnForm = useCallback(() => dispatch({ type: "CLOSE_EARN" }), []);
   const openContactForm = useCallback(() => dispatch({ type: "OPEN_CONTACT" }), []);
   const closeContactForm = useCallback(() => dispatch({ type: "CLOSE_CONTACT" }), []);
+  const toggleProfileDropdown = useCallback(() => setShowProfileDropdown(prev => !prev), []);
 
   return (
     <>
@@ -90,6 +93,32 @@ function TopNavigationBar() {
             onClick={openSignIn}
             aria-label="Open sign-in form"
           />
+          <div className={styles.ProfileContainer}>
+            <button
+              className={styles.ProfileCircle}
+              onClick={toggleProfileDropdown}
+              aria-label="User profile menu"
+              aria-expanded={showProfileDropdown}
+            >
+              {userInitials}
+            </button>
+            {showProfileDropdown && (
+              <div className={styles.ProfileDropdown}>
+                <button className={styles.DropdownItem}>
+                  <FontAwesomeIcon icon={faUser} className={styles.DropdownIcon} />
+                  <span>Profile</span>
+                </button>
+                <button className={styles.DropdownItem}>
+                  <FontAwesomeIcon icon={faCog} className={styles.DropdownIcon} />
+                  <span>Settings</span>
+                </button>
+                <button className={styles.DropdownItem}>
+                  <FontAwesomeIcon icon={faSignOutAlt} className={styles.DropdownIcon} />
+                  <span>Sign Out</span>
+                </button>
+              </div>
+            )}
+          </div>
           <button
             type="button"
             aria-label="Open menu"
