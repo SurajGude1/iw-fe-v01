@@ -1,5 +1,5 @@
 "use client";
-import Logo from "../../../../public/logo/Logo";
+import Logo from "../../../../public/logo/logo";
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // Import axios for API requests
 import { useRouter } from "next/navigation"; // Updated to use the correct hook
