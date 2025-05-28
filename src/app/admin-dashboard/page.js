@@ -64,7 +64,7 @@ export default function AdminDashboard() {
             </span>
           </h1>
           <p className="OffWhite WordSpacing1 Font16 LineHeight25">
-            It's a pleasure to have you here! Our platform is designed to
+            It&apos;s a pleasure to have you here! Our platform is designed to
             empower you with seamless tools, insightful analytics, and a dynamic
             space to manage everything effortlessly. Dive in, explore, and make
             the most of your experience with us.
