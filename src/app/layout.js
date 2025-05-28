@@ -1,6 +1,7 @@
 import { Sour_Gummy } from "next/font/google"; //  Font import for optimized loading via Next.js
 import "./styles/globals.css"; //  Global CSS import
 import Loader from "./components/loader/loader"; //  Custom loader component
+import ClientLoaderWrapper from "./components/loader/client-loader-wrapper";
 
 //  Google Font optimization for consistent typography
 const sourGummy = Sour_Gummy({
@@ -47,18 +48,16 @@ export const metadata = {
 //  Root layout applied to every page in the app
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-
-      <meta charSet="UTF-8" />
-
-      {/* Optional: Add className={sourGummy.variable} to <html> if font is scoped */}
+    <html lang="en" className={sourGummy.variable}>
+      <head>
+        <meta charSet="UTF-8" />
+      </head>
       <body>
-        {/*  Global loader appears before content is hydrated */}
-        <Loader />
-
-        {/*All page content injected here */}
-        {children}
+        <ClientLoaderWrapper>
+          {children}
+        </ClientLoaderWrapper>
       </body>
     </html>
   );
 }
+
