@@ -224,8 +224,14 @@
         font-size: 0.85rem;
     }
 
+    .Recommended {
+        margin-bottom: 1rem;
+    }
+
     .RecommendedTitle {
         font-size: .8rem;
+        -webkit-line-clamp: 3;
+        line-height: 1.6;
     }
 }
 
@@ -248,7 +254,13 @@
         font-size: 1rem;
     }
 
+    .Recommended {
+        margin-bottom: 1rem;
+    }
+
     .RecommendedTitle {
         font-size: .8rem;
+        -webkit-line-clamp: 3;
+        line-height: 1.6;
     }
 }
