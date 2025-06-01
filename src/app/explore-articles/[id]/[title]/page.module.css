@@ -81,9 +81,6 @@
 .Recommended {
     width: 20%;
     position: sticky;
-    top: 1rem;
-    margin-left: 2rem;
-    padding: 1rem;
     border-radius: 0.5rem;
     box-sizing: border-box;
 }
@@ -228,7 +225,7 @@
     }
 
     .RecommendedTitle {
-        font-size: 0.75rem;
+        font-size: .8rem;
     }
 }
 
@@ -252,6 +249,6 @@
     }
 
     .RecommendedTitle {
-        font-size: 0.7rem;
+        font-size: .8rem;
     }
 }
