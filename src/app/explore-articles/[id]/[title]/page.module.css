@@ -8,6 +8,7 @@
     padding: 1.4rem;
     box-sizing: border-box;
     overflow-x: hidden;
+    background-color: var(--off-white);
 }
 
 .Blog {
@@ -43,12 +44,6 @@
     border-bottom: 1px solid var(--charcoal);
 }
 
-.ActionItem {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
 .Icon {
     font-size: 1.4rem;
     color: var(--off-white);
@@ -65,7 +60,6 @@
 
 .Content * {
     color: var(--off-white) !important;
-
 }
 
 .Content img {
@@ -83,49 +77,103 @@
     margin: 1.5rem auto;
 }
 
+/* RECOMMENDED SECTION */
 .Recommended {
     width: 20%;
     position: sticky;
     top: 1rem;
     margin-left: 2rem;
-    border: 4px solid var(--charcoal);
     padding: 1rem;
     border-radius: 0.5rem;
     box-sizing: border-box;
 }
 
-.Recommended h3 {
+.RecommendedHeading {
     margin: 0 0 1.5rem 0;
-    color: var(--off-white);
+    color: var(--charcoal);
     font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--charcoal);
 }
 
 .RecommendedCard {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--rich-black);
+    border-radius: 0.4rem;
+    height: 80px;
+    margin-bottom: 1rem;
+    overflow: hidden;
 }
 
 .RecommendedCard:last-child {
     margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
 }
 
-.RecommendedCard h4 {
-    margin: 0 0 0.5rem 0;
-    color: var(--off-white);
-    font-size: 1rem;
+.RecommendedLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-.RecommendedCard p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    line-height: 1.5;
+.RecommendedCardContent {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.RecommendedImageContainer {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.RecommendedImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.RecommendedTitle {
     margin: 0;
+    color: var(--off-white);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    letter-spacing: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    flex: 1;
+    margin-right: .4rem;
 }
 
-/* Responsive Breakpoints */
+.RecommendedTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.2em;
+    background: linear-gradient(to bottom, transparent, var(--rich-black));
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s;
+}
+
+.RecommendedTitle[data-clamped="false"]::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
     .Blog {
         width: 60%;
@@ -152,6 +200,12 @@
         position: static;
         margin: 2rem 0 0 0;
     }
+
+    .RecommendedImageContainer {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -177,6 +231,16 @@
     .Span {
         font-size: 0.85rem;
     }
+
+    .RecommendedImageContainer {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+    }
+
+    .RecommendedTitle {
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -200,5 +264,15 @@
 
     .Recommended {
         padding: 0.8rem;
+    }
+
+    .RecommendedImageContainer {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+
+    .RecommendedTitle {
+        font-size: 0.7rem;
     }
 }

@@ -100,7 +100,7 @@ function Hero() {
           const openTimer = setTimeout(() => {
             setCurtainPhase('open');
           }, 800);
-          
+
           return () => clearTimeout(openTimer);
         }, 800);
 
