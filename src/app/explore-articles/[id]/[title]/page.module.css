@@ -201,11 +201,6 @@
         margin: 2rem 0 0 0;
     }
 
-    .RecommendedImageContainer {
-        width: 70px;
-        height: 70px;
-        min-width: 70px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -232,12 +227,6 @@
         font-size: 0.85rem;
     }
 
-    .RecommendedImageContainer {
-        width: 60px;
-        height: 60px;
-        min-width: 60px;
-    }
-
     .RecommendedTitle {
         font-size: 0.75rem;
     }
@@ -260,16 +249,6 @@
 
     .Icon {
         font-size: 1rem;
-    }
-
-    .Recommended {
-        padding: 0.8rem;
-    }
-
-    .RecommendedImageContainer {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
     }
 
     .RecommendedTitle {
