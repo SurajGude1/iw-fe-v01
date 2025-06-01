@@ -42,6 +42,14 @@ function Hero() {
   // Memoize current card to prevent unnecessary re-renders
   const currentCard = useMemo(() => cardData[currentCardIndex], [currentCardIndex]);
 
+  const onClickArrowHandler = useCallback((poster) => {
+    window.open(
+      `/explore-articles/${poster.id}/${encodeURIComponent(poster.title)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  }, []);
+
   // Handle HTML sanitization in useEffect
   useEffect(() => {
     if (typeof window !== 'undefined' && currentCard?.postSummary) {
@@ -215,7 +223,7 @@ function Hero() {
               text="Read More"
               backgroundColor="var(--electric-blue)"
               textColor="var(--rich-black)"
-              onClick={() => console.log("Read more clicked")}
+              onClick={() => onClickArrowHandler(currentCard)}
               aria-label={`Read more about ${currentCard.title}`}
             />
           </div>
