@@ -1,6 +1,5 @@
 import { Sour_Gummy } from "next/font/google"; //  Font import for optimized loading via Next.js
 import "./styles/globals.css"; //  Global CSS import
-import Loader from "./components/loader/loader"; //  Custom loader component
 import ClientLoaderWrapper from "./components/loader/client-loader-wrapper";
 
 //  Google Font optimization for consistent typography

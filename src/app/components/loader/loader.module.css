@@ -1,89 +1,75 @@
 .LoaderWrapper {
     position: fixed;
     inset: 0;
-    background-color: none;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    background-color: var(--charcoal);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
-.BallContainer {
+.LogoContainer {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 1.5rem;
-    /* Reduced gap */
-}
-
-.BallWrapper {
-    position: relative;
-    width: 0.8rem;
-    /* Reduced width */
-    height: 4rem;
-    /* Reduced height */
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    grid-area: 1.4rem;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
 }
 
-.Ball {
-    width: 0.8rem;
-    /* Reduced size */
-    height: 0.8rem;
-    /* Reduced size */
-    border-radius: 50%;
+.Logo {
+    width: 200px;
+    height: auto;
+}
+
+.Logo path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 2s ease-in-out forwards;
+}
+
+.LineContainer {
+    width: 200px; /* Same as logo width */
+    height: 2px;
+    overflow: hidden;
     position: relative;
-    z-index: 2;
 }
 
-.Trail {
+.AnimatedLine {
     position: absolute;
-    width: 0.15rem;
-    /* Reduced width */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    background-color: var(--charcoal);
-    opacity: 0;
-    animation: trailAnim 1.8s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    left: 0;
+    transform: translateX(-100%);
 }
 
-/* ... rest of your CSS remains the same, just update the translateY values ... */
-
-@keyframes bounceUp {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-1.8rem);
-        /* Reduced bounce height */
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
     }
 }
 
-@keyframes bounceDown {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(1.8rem);
-        /* Reduced bounce height */
+/* Hide on desktop */
+@media (min-width: 1025px) {
+    .LoaderWrapper {
+        display: none !important;
     }
 }
 
-/* Trail height adjustments */
-.BallWrapper:nth-child(1) .Trail,
-.BallWrapper:nth-child(2) .Trail,
-.BallWrapper:nth-child(3) .Trail,
-.BallWrapper:nth-child(4) .Trail,
-.BallWrapper:nth-child(5) .Trail {
-    height: 1.8rem;
-    /* Reduced trail height */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .Logo, .LineContainer {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Logo, .LineContainer {
+        width: 120px;
+    }
 }

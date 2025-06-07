@@ -28,7 +28,7 @@ export default function AddNewPost() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [postTitle, setPostTitle] = useState("");
-  const [clientEmail, setClientEmail] = useState("");
+  const [authorName, setAuthorName] = useState("");
   const [postContent, setPostContent] = useState("");
   const [adminData, setAdminData] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(true); // Assuming the user is authenticated
@@ -277,7 +277,7 @@ export default function AddNewPost() {
     const formData = new FormData();
     formData.append("postTitle", postTitle);
     formData.append("category", category);
-    formData.append("clientEmail", clientEmail);
+    formData.append("authorName", authorName);
     formData.append("postContent", postContent);
     formData.append("addedBy", adminData?.name || "");
     if (thumbnailFile) formData.append("thumbnailFile", thumbnailFile);
@@ -343,7 +343,7 @@ export default function AddNewPost() {
   // Reset form data
   const resetForm = () => {
     setPostTitle("");
-    setClientEmail("");
+    setAuthorName("");
     setCategory("Controversial");
     setPostContent(""); // Reset TinyMCE editor content
     setThumbnailFile(null);
@@ -401,7 +401,7 @@ export default function AddNewPost() {
   // Handle update button click
   const handleUpdate = (post) => {
     setPostTitle(post.postTitle);
-    setClientEmail(post.author);
+    setAuthorName(post.authorName);
     setCategory(post.category);
     setPostContent(post.postContent); // Set postContent for TinyMCE
     setThumbnailUrl(post.thumbnailUrl); // Set existing thumbnail URL
@@ -578,13 +578,13 @@ export default function AddNewPost() {
 
         {/* Author Email */}
         <div className="FormGroup Box100w Gap15 JustifyStart">
-          <label htmlFor="clientEmail">Author Email</label>
+          <label htmlFor="authorName">Author</label>
           <input
-            type="email"
-            id="clientEmail"
-            name="clientEmail"
-            value={clientEmail}
-            onChange={(e) => setClientEmail(e.target.value)}
+            type="text"
+            id="authorName"
+            name="authorName"
+            value={authorName}
+            onChange={(e) => setAuthorName(e.target.value)}
             placeholder="Enter the author's email"
             className="InputField Box100w Padding10 BorderRadius4 Font16 BorderCharCoal"
           />
