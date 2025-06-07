@@ -40,7 +40,7 @@ export default function Loader() {
       }
     };
 
-    const lineInterval = setInterval(lineAnimation, 2000);
+    const lineInterval = setInterval(lineAnimation, 1000);
     lineAnimation(); // Initial call
 
     // Hide loader after animation completes

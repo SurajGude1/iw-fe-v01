@@ -19,6 +19,8 @@ export default function Advertisements() {
     videoFile: null,
     duration: "",
     expectedCost: 0,
+    youtubeChannelName: "",
+    youtubeChannelUrl: "",
   });
   const [advertises, setAdvertises] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,6 +82,8 @@ export default function Advertisements() {
     if (formData.videoFile) form.append("videoFile", formData.videoFile);
     form.append("duration", formData.duration || "");
     form.append("expectedCost", formData.expectedCost || 0);
+    form.append("youtubeChannelName", formData.youtubeChannelName || "");
+    form.append("youtubeChannelUrl", formData.youtubeChannelUrl || "");
 
     try {
       let response;
@@ -151,6 +155,8 @@ export default function Advertisements() {
       videoFile: null,
       duration: "",
       expectedCost: 0,
+      youtubeChannelName: "",
+      youtubeChannelUrl: "",
     });
     setAdvertiseType("");
     setIsUpdating(false);
@@ -215,6 +221,8 @@ export default function Advertisements() {
       videoFile: null,
       duration: ad.duration,
       expectedCost: ad.expectedCost,
+      youtubeChannelName: ad.youtubeChannelName || "",
+      youtubeChannelUrl: ad.youtubeChannelUrl || "",
     });
     setAdvertiseType(ad.advertiseType);
     setIsUpdating(true);
@@ -322,6 +330,7 @@ export default function Advertisements() {
             </option>
             <option value="banner">Banner</option>
             <option value="video">Video</option>
+            <option value="youtube">Youtube channel promotion</option>
           </select>
         </div>
 
@@ -353,6 +362,38 @@ export default function Advertisements() {
               }
             />
           </div>
+        )}
+
+        {/* YouTube Channel Fields */}
+        {advertiseType === "youtube" && (
+          <>
+            <div className="FormGroup Box100w Gap15 JustifyStart">
+              <label htmlFor="youtubeChannelName">YouTube Channel Name</label>
+              <input
+                type="text"
+                id="youtubeChannelName"
+                placeholder="Enter YouTube channel name"
+                className="InputField Box100w Padding10 BorderRadius4 Font16 BorderCharCoal"
+                value={formData.youtubeChannelName || ""}
+                onChange={(e) =>
+                  setFormData({ ...formData, youtubeChannelName: e.target.value })
+                }
+              />
+            </div>
+            <div className="FormGroup Box100w Gap15 JustifyStart">
+              <label htmlFor="youtubeChannelUrl">YouTube Channel URL</label>
+              <input
+                type="url"
+                id="youtubeChannelUrl"
+                placeholder="Enter YouTube channel URL"
+                className="InputField Box100w Padding10 BorderRadius4 Font16 BorderCharCoal"
+                value={formData.youtubeChannelUrl || ""}
+                onChange={(e) =>
+                  setFormData({ ...formData, youtubeChannelUrl: e.target.value })
+                }
+              />
+            </div>
+          </>
         )}
 
         {/* Duration */}
@@ -449,6 +490,7 @@ export default function Advertisements() {
                   <>
                     <option value="banner">Banner</option>
                     <option value="video">Video</option>
+                    <option value="youtube">Youtube channel promotion</option>
                   </>
                 ) : (
                   <>
